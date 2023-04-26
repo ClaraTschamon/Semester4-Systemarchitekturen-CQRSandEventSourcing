@@ -2,3 +2,4 @@
 /.gradle/
 /Server/build/
 /Server/build/classes/java/main/
+.idea/sonarlint

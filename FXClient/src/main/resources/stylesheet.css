@@ -1,0 +1,8 @@
+.gridpane {
+    -fx-padding: 10;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-end-margin: 10;
+    -fx-start-margin: 10;
+    -fx-min-width: 800;
+}

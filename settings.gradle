@@ -1,0 +1,5 @@
+rootProject.name = 'CQRSandEventSourcing'
+include 'Server'
+include 'Share'
+include 'FXClient'
+

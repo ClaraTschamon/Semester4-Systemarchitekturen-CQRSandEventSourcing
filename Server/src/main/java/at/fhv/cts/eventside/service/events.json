@@ -1,0 +1,286 @@
+[
+    {
+        "data": {
+            "address": "Musterstrasse 1",
+            "name": "Max Mustermann",
+            "customerId": "ec83c215-f3e7-4277-b348-f9605d5388dc",
+            "dateOfBirth": "1991-01-01",
+            "timestamp": "2023-04-26T12:03:39.148962200"
+        },
+        "eventType": "CustomerCreatedEvent"
+    },
+    {
+        "data": {
+            "address": "Musterstrasse 4",
+            "name": "Franz Muster",
+            "customerId": "f8dc12f0-c1ef-4293-b9c3-7863df9c20f7",
+            "dateOfBirth": "1994-04-04",
+            "timestamp": "2023-04-26T12:03:40.150396500"
+        },
+        "eventType": "CustomerCreatedEvent"
+    },
+    {
+        "data": {
+            "address": "Musterstrasse 3",
+            "name": "Hans Muster",
+            "customerId": "fc292ca3-e4df-47f9-b1a2-7fa114ef356c",
+            "dateOfBirth": "1993-03-03",
+            "timestamp": "2023-04-26T12:03:40.179600400"
+        },
+        "eventType": "CustomerCreatedEvent"
+    },
+    {
+        "data": {
+            "address": "Musterstrasse 5",
+            "name": "Hans Musterfrau",
+            "customerId": "f1797a99-94e2-46a7-9267-21a96b04df43",
+            "dateOfBirth": "1995-05-05",
+            "timestamp": "2023-04-26T12:03:40.198056800"
+        },
+        "eventType": "CustomerCreatedEvent"
+    },
+    {
+        "data": {
+            "address": "Musterstrasse 2",
+            "name": "Linda Musterfrau",
+            "customerId": "728ce816-c38b-483f-945d-37602d8d15b1",
+            "dateOfBirth": "1992-02-02",
+            "timestamp": "2023-04-26T12:03:40.218990300"
+        },
+        "eventType": "CustomerCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 1,
+            "roomNo": 1,
+            "category": "Single",
+            "timestamp": "2023-04-26T12:03:40.238920300"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 2,
+            "roomNo": 2,
+            "category": "Double",
+            "timestamp": "2023-04-26T12:03:40.277679"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 1,
+            "roomNo": 3,
+            "category": "Single",
+            "timestamp": "2023-04-26T12:03:40.303103400"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 4,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.322036900"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 1,
+            "roomNo": 5,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.345331300"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 6,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.365962600"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 7,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.385813300"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 8,
+            "category": "Double",
+            "timestamp": "2023-04-26T12:03:40.408629700"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 9,
+            "category": "Double",
+            "timestamp": "2023-04-26T12:03:40.428515300"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 10,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.452404100"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 1,
+            "roomNo": 11,
+            "category": "Double",
+            "timestamp": "2023-04-26T12:03:40.473136500"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 3,
+            "roomNo": 12,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.496040800"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 13,
+            "category": "Single",
+            "timestamp": "2023-04-26T12:03:40.517956100"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 14,
+            "category": "Double",
+            "timestamp": "2023-04-26T12:03:40.535037200"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 1,
+            "roomNo": 15,
+            "category": "Double",
+            "timestamp": "2023-04-26T12:03:40.557456500"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 1,
+            "roomNo": 16,
+            "category": "Single",
+            "timestamp": "2023-04-26T12:03:40.579086400"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 17,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.594285800"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 1,
+            "roomNo": 18,
+            "category": "Suite",
+            "timestamp": "2023-04-26T12:03:40.619577600"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 19,
+            "category": "Single",
+            "timestamp": "2023-04-26T12:03:40.642970300"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "maxPersons": 4,
+            "roomNo": 20,
+            "category": "Family",
+            "timestamp": "2023-04-26T12:03:40.664955800"
+        },
+        "eventType": "RoomCreatedEvent"
+    },
+    {
+        "data": {
+            "fromDate": "2023-04-21",
+            "rooms": [
+                3,
+                4
+            ],
+            "toDate": "2023-04-23",
+            "customerId": "f8dc12f0-c1ef-4293-b9c3-7863df9c20f7",
+            "bookingId": "b2",
+            "timestamp": "2023-04-26T12:03:40.683542"
+        },
+        "eventType": "BookingCreatedEvent"
+    },
+    {
+        "data": {
+            "fromDate": "2023-04-25",
+            "rooms": [
+                5,
+                6,
+                7
+            ],
+            "toDate": "2023-04-27",
+            "customerId": "f1797a99-94e2-46a7-9267-21a96b04df43",
+            "bookingId": "b3",
+            "timestamp": "2023-04-26T12:03:40.727161700"
+        },
+        "eventType": "BookingCreatedEvent"
+    },
+    {
+        "data": {
+            "fromDate": "2023-04-23",
+            "rooms": [8],
+            "toDate": "2023-05-01",
+            "customerId": "fc292ca3-e4df-47f9-b1a2-7fa114ef356c",
+            "bookingId": "b4",
+            "timestamp": "2023-04-26T12:03:40.745079900"
+        },
+        "eventType": "BookingCreatedEvent"
+    },
+    {
+        "data": {
+            "fromDate": "2023-05-01",
+            "rooms": [
+                1,
+                2
+            ],
+            "toDate": "2023-05-03",
+            "customerId": "f8dc12f0-c1ef-4293-b9c3-7863df9c20f7",
+            "bookingId": "b1",
+            "timestamp": "2023-04-26T12:03:40.768504900"
+        },
+        "eventType": "BookingCreatedEvent"
+    }
+]

@@ -1,4 +1,4 @@
-module at.fhv.cts {
+module at.fhv.cts.fxclient {
     requires javafx.controls;
     requires javafx.fxml;
     requires spring.web;

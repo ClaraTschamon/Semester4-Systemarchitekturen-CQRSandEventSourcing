@@ -37,7 +37,7 @@ public class EventService {
     }
 
     private void writeEvent(Event event) {
-        File jsonFile = new File("src/main/java/at/fhv/cts/eventside/service/events.json");
+        File jsonFile = new File("Server/src/main/java/at/fhv/cts/eventside/service/events.json");
 
         // read the existing JSON data from the file
         JSONArray existingJsonArr = new JSONArray();
@@ -78,7 +78,7 @@ public class EventService {
         List<Event> events = new ArrayList<>();
         try {
             // Read the JSON file into a string
-            String jsonString = new String(Files.readAllBytes(Paths.get("src/main/java/at/fhv/cts/eventside/service/events.json")));
+            String jsonString = new String(Files.readAllBytes(Paths.get("Server/src/main/java/at/fhv/cts/eventside/service/events.json")));
 
             // Parse the JSON string into a JSONArray
             JSONArray eventsArray = new JSONArray(jsonString);

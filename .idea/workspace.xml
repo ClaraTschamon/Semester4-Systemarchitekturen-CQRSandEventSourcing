@@ -4,29 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b559b5bf-21ca-4f41-b241-85909a1e6ac0" name="Changes" comment="">
+    <list default="true" id="b559b5bf-21ca-4f41-b241-85909a1e6ac0" name="Changes" comment="modules now working">
       <change afterPath="$PROJECT_DIR$/Share/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FXClient/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FXClient/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FXClient/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FXClient/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FXClient/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/rest/WritesideAdapterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/rest/WritesideAdapterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/Aggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/Aggregate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/WritesideRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/WritesideRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/commands/BookRoomsCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/commands/CancelBookingCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/commands/CreateCustomerCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Share/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/events.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/events.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/build/libs/Share-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/libs/Share-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +51,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -131,6 +121,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
     "last_opened_file_path": "C:/Users/clara/Downloads/CQRSandEventSourcing",
@@ -170,7 +161,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.CQRSandEventSourcing [build]">
+  <component name="RunManager" selected="Application.MainApplication">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.fhv.cts.fxclient.MainApplication" />
       <module name="CQRSandEventSourcing.FXClient.main" />
@@ -184,7 +175,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CQRSandEventSourcing [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CQRSandEventSourcing [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -195,7 +186,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="run" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -263,18 +254,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainApplication" />
-      <item itemvalue="Gradle.CQRSandEventSourcing [build]" />
+      <item itemvalue="Gradle.CQRSandEventSourcing [run]" />
       <item itemvalue="Spring Boot.QueryClientApplication" />
       <item itemvalue="Spring Boot.CommandClientApplication" />
       <item itemvalue="Spring Boot.EventBus" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CQRSandEventSourcing [build]" />
-        <item itemvalue="Spring Boot.QueryClientApplication" />
         <item itemvalue="Spring Boot.CommandClientApplication" />
+        <item itemvalue="Spring Boot.QueryClientApplication" />
         <item itemvalue="Spring Boot.EventBus" />
         <item itemvalue="Application.MainApplication" />
+        <item itemvalue="Gradle.CQRSandEventSourcing [run]" />
       </list>
     </recent_temporary>
   </component>
@@ -288,12 +279,24 @@
       <updated>1682514127766</updated>
       <workItem from="1682514129045" duration="7425000" />
       <workItem from="1682522623337" duration="239000" />
-      <workItem from="1682522906413" duration="2153000" />
+      <workItem from="1682522906413" duration="4142000" />
     </task>
+    <task id="LOCAL-00001" summary="modules now working">
+      <created>1682526400324</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682526400324</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modules now working" />
+    <option name="LAST_COMMIT_MESSAGE" value="modules now working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

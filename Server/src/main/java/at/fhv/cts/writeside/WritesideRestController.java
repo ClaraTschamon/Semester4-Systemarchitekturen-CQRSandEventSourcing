@@ -17,15 +17,6 @@ public class WritesideRestController {
     @Autowired
     private Aggregate aggregate;
 
-    /*@GetMapping(value = "/createCustomer") //TODO: in POST umwandeln
-    public String createCustomer(@RequestParam String name, @RequestParam String address, @RequestParam String dateOfBirth) { //take request parameters form website
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate birthdateLD = LocalDate.parse(dateOfBirth, formatter);
-        CreateCustomerCommand command = new CreateCustomerCommand(name, address, birthdateLD);
-        return aggregate.handleCreateCustomerCommand(command);
-    }*/
-
-
     @PostMapping(value = "/createCustomer")
     public String createCustomer(@RequestBody CreateCustomerCommand command) { //dann kann es einen übergeordneten command geben und nur "/create" URL
         return aggregate.handleCreateCustomerCommand(command);

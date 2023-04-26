@@ -7,6 +7,10 @@ public class CreateCustomerCommand {
     private String address;
     private LocalDate birthdate;
 
+    public CreateCustomerCommand () {
+
+    }
+
     public CreateCustomerCommand (String name, String address, LocalDate birthdate) {
         this.name = name;
         this.address = address;

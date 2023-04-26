@@ -10,7 +10,6 @@ bootJar {
 
 group = 'at.fhv.cts'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '18'
 
 repositories {
     mavenCentral()

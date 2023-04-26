@@ -1,9 +1,7 @@
 package at.fhv.cts.writeside;
 
 import at.fhv.cts.eventside.events.*;
-import at.fhv.cts.writeside.commands.BookRoomsCommand;
-import at.fhv.cts.writeside.commands.CancelBookingCommand;
-import at.fhv.cts.writeside.commands.CreateCustomerCommand;
+import share.commands.*;
 import at.fhv.cts.writeside.domainModel.Booking;
 import at.fhv.cts.writeside.domainModel.Customer;
 import at.fhv.cts.writeside.domainModel.Room;

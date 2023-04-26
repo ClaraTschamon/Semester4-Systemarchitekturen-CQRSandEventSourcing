@@ -1,11 +1,14 @@
 package at.fhv.cts.fxclient.rest;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
+import share.commands.CreateCustomerCommand;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class WritesideAdapterImpl implements IWritesideAdapter {
+
     String writesideClientURL = "http://localhost:8081";
     private final WebClient writesideClient = WebClient.create(writesideClientURL);
 
@@ -54,7 +57,8 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
 
     @Override
     public String createCustomer(String name, String address, LocalDate dateOfBirth) { //returns customerId
-        return writesideClient
+        CreateCustomerCommand command = new CreateCustomerCommand(name, address, dateOfBirth);
+        /*return writesideClient
                 .get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/createCustomer")
@@ -64,19 +68,30 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
                         .build())
                 .retrieve()
                 .bodyToMono(String.class)
+                .block();*/
+        return writesideClient
+                .post()
+                .uri("/createCustomer")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .bodyValue(command)
+                .retrieve()
+                .bodyToMono(String.class)
                 .block();
     }
 
 
 
     /* //TODO rewrite createCustomer to post
-    * WebClient webClient = WebClient.create();
+     WebClient webClient = WebClient.create();
     return writesideClient.post()
             .uri("/createCustomer?name={name}&address={address}&dateOfBirth={dateOfBirth}", name, address, dateOfBirth)
             .retrieve()
             .bodyToMono(String.class)
             .block();
-    * */
+
+     */
+
 
     @Override
     public boolean bookRooms(LocalDate arrivalDate, LocalDate departureDate,
@@ -94,4 +109,5 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
                 .bodyToMono(Boolean.class)
                 .block();
     }
+
 }

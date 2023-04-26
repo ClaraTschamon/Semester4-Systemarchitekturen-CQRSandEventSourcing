@@ -9,7 +9,8 @@ module at.fhv.cts {
     requires spring.beans;
     requires spring.context;
     requires spring.boot.autoconfigure;
-
+    requires reactor.core;
+    requires CQRSandEventSourcing.Share.main;
 
     exports at.fhv.cts.fxclient;
 
@@ -19,4 +20,5 @@ module at.fhv.cts {
     opens at.fhv.cts.fxclient to javafx.base, javafx.fxml;
     exports at.fhv.cts.fxclient.rest;
     opens at.fhv.cts.fxclient.rest to javafx.base, javafx.fxml;
+
 }

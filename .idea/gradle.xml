@@ -14,18 +14,6 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/FXClient" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/FXClient" />
-            <option value="$PROJECT_DIR$/Server" />
-            <option value="$PROJECT_DIR$/Share" />
-          </set>
-        </option>
-      </GradleProjectSettings>
     </option>
   </component>
 </project>

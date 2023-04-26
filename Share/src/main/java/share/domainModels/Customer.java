@@ -1,4 +1,4 @@
-package at.fhv.cts.readside.domainModel;
+package share.domainModels;
 
 import java.time.LocalDate;
 import java.util.UUID;

@@ -162,11 +162,8 @@ public class EventService {
     }
 
 
-    public void subscribe(String host, String createdCustomerUrl, String createdBookingUrl,
-                          String cancelledBookingUrl, String dbsDeletedUrl,
-                          String roomCreatedUrl) {
-        EventSubscriber subscriber = new EventSubscriber(host, createdCustomerUrl, createdBookingUrl,
-                cancelledBookingUrl, dbsDeletedUrl, roomCreatedUrl);
+    public void subscribe(String host, String eventUrl) {
+        EventSubscriber subscriber = new EventSubscriber(host, eventUrl);
         subscribers.put(host, subscriber);
     }
 }

@@ -4,13 +4,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b559b5bf-21ca-4f41-b241-85909a1e6ac0" name="Changes" comment="modules now working">
-      <change afterPath="$PROJECT_DIR$/Share/src/main/java/module-info.java" afterDir="false" />
+    <list default="true" id="b559b5bf-21ca-4f41-b241-85909a1e6ac0" name="Changes" comment="safety commit">
+      <change afterPath="$PROJECT_DIR$/.idea/CQRSandEventSourcing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/8/38fec6179df6110d82459de6db992fd041c51f9b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3a43f0a82ece3a6340047aff3d7246fc613a5cde" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/1/4161f161926f005fd90b082d7d987c2d61c46e5f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4a183149260289b4504d21874c628228621ca7e1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/517b060a70b251df04ba6cb5d7f55bfb6be1b7a2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/2/52a44977ead3c4a38917ea817d9a0ba16d0ca131" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/e/7e1b66ee49bc98264bffe19b68c4cfcfe1f1cde3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/d/9d3dc16a06b4203bff03b701c386d5e9276b05c0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/b/cb391a29108c138e019be15c2e1d4e97d86ea92d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/5/05efc8b1657769a27696d478ded1e95f38737233" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/8/38fec6179df6110d82459de6db992fd041c51f9b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/a/3a43f0a82ece3a6340047aff3d7246fc613a5cde" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/1/4161f161926f005fd90b082d7d987c2d61c46e5f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/a/4a183149260289b4504d21874c628228621ca7e1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/1/517b060a70b251df04ba6cb5d7f55bfb6be1b7a2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/2/52a44977ead3c4a38917ea817d9a0ba16d0ca131" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/e/7e1b66ee49bc98264bffe19b68c4cfcfe1f1cde3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/d/9d3dc16a06b4203bff03b701c386d5e9276b05c0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/b/cb391a29108c138e019be15c2e1d4e97d86ea92d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/domainModel/RemoteBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/domainModel/RemoteBooking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/rest/WritesideAdapterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/rest/WritesideAdapterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/clientApplications/QueryClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/clientApplications/QueryClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/EventsideRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/EventsideRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/events/BookingCancelledEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/events/BookingCancelledEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/EventSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/EventSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/events.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/events.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/Projection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/Projection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/ReadsideRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/ReadsideRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/domainModel/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/Share/src/main/java/share/domainModels/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/domainModel/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Share/src/main/java/share/domainModels/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/domainModel/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Share/src/main/java/share/domainModels/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/BookingReadRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/BookingReadRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/CustomerReadRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/CustomerReadRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/RoomsReadRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/RoomsReadRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/Aggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/Aggregate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/WritesideRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/WritesideRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/domainModel/Booking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/domainModel/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/domainModel/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/repositories/BookingWriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/repositories/BookingWriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/repositories/CustomerWriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/repositories/CustomerWriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/repositories/RoomWriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/repositories/RoomWriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/build/classes/java/main/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/classes/java/main/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/build/classes/java/main/share/commands/BookRoomsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/classes/java/main/share/commands/BookRoomsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/build/classes/java/main/share/commands/CancelBookingCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/classes/java/main/share/commands/CancelBookingCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/build/classes/java/main/share/commands/CreateCustomerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/classes/java/main/share/commands/CreateCustomerCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Share/build/libs/Share-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/libs/Share-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Share/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/src/main/java/share/commands/BookRoomsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Share/src/main/java/share/commands/BookRoomsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/src/main/java/share/commands/CancelBookingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Share/src/main/java/share/commands/CancelBookingCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/src/main/java/share/commands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Share/src/main/java/share/commands/CreateCustomerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Share/src/main/java/share/commands/CreateCustomerCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,46 +104,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="distribution" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="verification" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
-                <item name="FXClient" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CQRSandEventSourcing" type="f1a62948:ProjectNode" />
-                <item name="FXClient" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -98,6 +115,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -121,10 +139,11 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "C:/Users/clara/Downloads/CQRSandEventSourcing",
+    "last_opened_file_path": "C:/Users/clara/IdeaProjects/Systemarchitekturen/CQRSandEventSourcing",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -142,11 +161,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\clara\Downloads\CQRSandEventSourcing\Share\src\main\java\domainModels" />
       <recent name="C:\Users\clara\Downloads\CQRSandEventSourcing\Share\src\main\java\commands" />
       <recent name="C:\Users\clara\Downloads\CQRSandEventSourcing\FXClient\src\main\java\at\fhv\cts\fxclient" />
       <recent name="C:\Users\clara\Downloads\CQRSandEventSourcing\FXClient\src\main\resources" />
       <recent name="C:\Users\clara\Downloads\CQRSandEventSourcing\Server\src\main\java\at\fhv\cts" />
-      <recent name="C:\Users\clara\Downloads\CQRSandEventSourcing\FXClient\src\main\java\at\fhv\cts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\clara\Downloads\CQRSandEventSourcing\FXClient\src\main\resources" />
@@ -195,17 +214,6 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="CommandClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
@@ -261,8 +269,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CommandClientApplication" />
         <item itemvalue="Spring Boot.QueryClientApplication" />
+        <item itemvalue="Spring Boot.CommandClientApplication" />
         <item itemvalue="Spring Boot.EventBus" />
         <item itemvalue="Application.MainApplication" />
         <item itemvalue="Gradle.CQRSandEventSourcing [run]" />
@@ -279,7 +287,8 @@
       <updated>1682514127766</updated>
       <workItem from="1682514129045" duration="7425000" />
       <workItem from="1682522623337" duration="239000" />
-      <workItem from="1682522906413" duration="4142000" />
+      <workItem from="1682522906413" duration="8587000" />
+      <workItem from="1682532687016" duration="1145000" />
     </task>
     <task id="LOCAL-00001" summary="modules now working">
       <created>1682526400324</created>
@@ -288,15 +297,35 @@
       <option name="project" value="LOCAL" />
       <updated>1682526400324</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="module really working">
+      <created>1682528488939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682528488939</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modules now working" />
-    <option name="LAST_COMMIT_MESSAGE" value="modules now working" />
+    <MESSAGE value="module really working" />
+    <MESSAGE value="safety commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="safety commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

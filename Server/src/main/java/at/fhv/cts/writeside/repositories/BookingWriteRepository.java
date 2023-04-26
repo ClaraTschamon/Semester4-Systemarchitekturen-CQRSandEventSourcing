@@ -1,8 +1,6 @@
 package at.fhv.cts.writeside.repositories;
 
-import at.fhv.cts.writeside.domainModel.Booking;
-import at.fhv.cts.writeside.domainModel.Customer;
-import at.fhv.cts.writeside.domainModel.Room;
+import share.domainModels.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +19,7 @@ public class BookingWriteRepository {
     private Map<String, Booking> bookings = new HashMap<>();
 
     public void createBooking(Booking booking) {
-        bookings.put(booking.getId(), booking);
+        bookings.put(booking.getBookingId(), booking);
     }
 
     public Booking getBookingById(String id) {
@@ -65,10 +63,10 @@ public class BookingWriteRepository {
         Booking booking4 = new Booking("b4", LocalDate.of(2023, 4,23),
                 LocalDate.of(2023, 5, 1), customer4, rooms4);
 
-        bookings.put(booking1.getId(), booking1);
-        bookings.put(booking2.getId(), booking2);
-        bookings.put(booking3.getId(), booking3);
-        bookings.put(booking4.getId(), booking4);
+        bookings.put(booking1.getBookingId(), booking1);
+        bookings.put(booking2.getBookingId(), booking2);
+        bookings.put(booking3.getBookingId(), booking3);
+        bookings.put(booking4.getBookingId(), booking4);
 
         return bookings;
     }

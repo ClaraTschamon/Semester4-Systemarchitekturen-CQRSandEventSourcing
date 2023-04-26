@@ -1,16 +1,17 @@
-package at.fhv.cts.readside.domainModel;
+package share.domainModels;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 public class Booking {
+
     private String bookingId;
     private LocalDate fromDate;
     private LocalDate toDate;
     private Customer customer;
-    private Set<Integer> rooms;
+    private Set<Room> rooms;
 
-    public Booking(String bookingId, LocalDate fromDate, LocalDate toDate, Customer customer, Set<Integer> rooms) {
+    public Booking(String bookingId, LocalDate fromDate, LocalDate toDate, Customer customer, Set<Room> rooms) {
         this.bookingId = bookingId;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -50,11 +51,11 @@ public class Booking {
         this.customer = customer;
     }
 
-    public Set<Integer> getRooms() {
+    public Set<Room> getRooms() {
         return rooms;
     }
 
-    public void setRooms(Set<Integer> rooms) {
+    public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
     }
 }

@@ -2,6 +2,8 @@ package at.fhv.cts.fxclient.rest;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
+import share.commands.BookRoomsCommand;
+import share.commands.CancelBookingCommand;
 import share.commands.CreateCustomerCommand;
 
 import java.time.LocalDate;
@@ -44,12 +46,14 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
 
     @Override
     public boolean cancelBooking(String bookingId) {
+        CancelBookingCommand command = new CancelBookingCommand(bookingId);
+
         return writesideClient
-                .get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/cancelBooking")
-                        .queryParam("bookingId", bookingId)
-                        .build())
+                .post()
+                .uri("/cancelBooking")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .bodyValue(command)
                 .retrieve()
                 .bodyToMono(Boolean.class)
                 .block();
@@ -58,17 +62,6 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
     @Override
     public String createCustomer(String name, String address, LocalDate dateOfBirth) { //returns customerId
         CreateCustomerCommand command = new CreateCustomerCommand(name, address, dateOfBirth);
-        /*return writesideClient
-                .get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/createCustomer")
-                        .queryParam("name", name)
-                        .queryParam("address", address)
-                        .queryParam("dateOfBirth", dateOfBirth)
-                        .build())
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();*/
         return writesideClient
                 .post()
                 .uri("/createCustomer")
@@ -80,23 +73,10 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
                 .block();
     }
 
-
-
-    /* //TODO rewrite createCustomer to post
-     WebClient webClient = WebClient.create();
-    return writesideClient.post()
-            .uri("/createCustomer?name={name}&address={address}&dateOfBirth={dateOfBirth}", name, address, dateOfBirth)
-            .retrieve()
-            .bodyToMono(String.class)
-            .block();
-
-     */
-
-
     @Override
     public boolean bookRooms(LocalDate arrivalDate, LocalDate departureDate,
                              List<Integer> roomNumbers, String customerId) {
-        return writesideClient
+        /*return writesideClient
                 .get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/bookRooms")
@@ -108,6 +88,18 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
                 .retrieve()
                 .bodyToMono(Boolean.class)
                 .block();
-    }
 
+         */
+
+        BookRoomsCommand command = new BookRoomsCommand(arrivalDate, departureDate, roomNumbers, customerId);
+        return writesideClient
+                .post()
+                .uri("/bookRooms")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .bodyValue(command)
+                .retrieve()
+                .bodyToMono(Boolean.class)
+                .block();
+    }
 }

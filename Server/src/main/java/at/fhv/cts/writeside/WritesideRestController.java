@@ -6,44 +6,31 @@ import share.commands.BookRoomsCommand;
 import share.commands.CancelBookingCommand;
 import share.commands.CreateCustomerCommand;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.UUID;
-
 @RestController
 public class WritesideRestController {
 
     @Autowired
     private Aggregate aggregate;
 
+    //für commands 3 verschiedene methoden weil createCustomer() String returned und die anderen boolean
     @PostMapping(value = "/createCustomer")
-    public String createCustomer(@RequestBody CreateCustomerCommand command) { //dann kann es einen übergeordneten command geben und nur "/create" URL
+    public String createCustomer(@RequestBody CreateCustomerCommand command) {
         return aggregate.handleCreateCustomerCommand(command);
     }
 
-
-    @GetMapping(value = "/bookRooms") //TODO: in POST umwandeln
-    public boolean bookRooms(@RequestParam String arrivalDate, @RequestParam String departureDate,
-                             @RequestParam List<Integer> roomNumbers, @RequestParam String customerId) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate arrivalDateLD = LocalDate.parse(arrivalDate, formatter);
-        LocalDate departureDateLD = LocalDate.parse(departureDate, formatter);
-        BookRoomsCommand bookRoomsCommand = new BookRoomsCommand(arrivalDateLD, departureDateLD, roomNumbers, UUID.fromString(customerId));
-        return aggregate.handleBookRoomCommand(bookRoomsCommand);
+    @PostMapping(value = "/bookRooms")
+    public boolean bookRooms(@RequestBody BookRoomsCommand command) {
+        return aggregate.handleBookRoomCommand(command);
     }
 
-    @GetMapping(value = "/cancelBooking") //TODO: in POST umwandeln
-    public boolean cancelBooking(@RequestParam String bookingId) {
-        System.out.println("cancelBooking called");
-        CancelBookingCommand cancelBookingCommand = new CancelBookingCommand(bookingId);
-        return aggregate.handleCancelBookingCommand(cancelBookingCommand);
+    @PostMapping(value = "/cancelBooking")
+    public boolean cancelBooking(@RequestBody CancelBookingCommand command) {
+        return aggregate.handleCancelBookingCommand(command);
     }
 
     @PostMapping(value = "/deleteDBs")
     public void deleteDBs() { //der command wird nur auf das query modell weitergeleitet
         aggregate.deleteDBs();
-        System.out.println("deleteDBs called");
     }
 
     @PostMapping(value = "/initializeDBs")
@@ -54,6 +41,5 @@ public class WritesideRestController {
     @PostMapping(value = "/restoreDBs")
     public void restoreDBs() { //der command wird nur auf das query modell weitergeleitet
         aggregate.restoreDBs();
-        System.out.println("restoreDBs called");
     }
 }

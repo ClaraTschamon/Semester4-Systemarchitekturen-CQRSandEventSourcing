@@ -22,11 +22,8 @@ public class EventsideRestController {
     }
 
     @GetMapping(value = "/subscribe")
-    public boolean subscribe(@RequestParam String host, @RequestParam String createdCustomerUrl,
-                             @RequestParam String createdBookingUrl, @RequestParam String cancelledBookingUrl,
-                             @RequestParam String dbsDeletedUrl, @RequestParam String roomCreatedUrl) {
-
-        eventService.subscribe(host, createdCustomerUrl, createdBookingUrl, cancelledBookingUrl, dbsDeletedUrl, roomCreatedUrl);
+    public boolean subscribe(@RequestParam String host, @RequestParam String eventUrl) {
+        eventService.subscribe(host, eventUrl);
         System.out.println("Subscribed to eventbus");
         return true;
     }

@@ -11,11 +11,13 @@ public class BookRoomsCommand {
     private List<Integer> rooms;
     private UUID customerId;
 
-    public BookRoomsCommand(LocalDate arrivalDate, LocalDate departureDate, List<Integer> rooms, UUID customerId) {
+    public BookRoomsCommand () {} //otherwise com.fasterxml.jackson.databind.exc.MismatchedInputException
+
+    public BookRoomsCommand(LocalDate arrivalDate, LocalDate departureDate, List<Integer> rooms, String customerId) {
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
         this.rooms = rooms;
-        this.customerId = customerId;
+        this.customerId = UUID.fromString(customerId);
     }
 
     public LocalDate getArrivalDate() {

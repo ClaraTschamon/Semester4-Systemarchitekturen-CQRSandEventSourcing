@@ -1,6 +1,6 @@
 package at.fhv.cts.readside.repositories;
 
-import at.fhv.cts.readside.domainModel.Room;
+import share.domainModels.Room;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -33,11 +33,12 @@ public class RoomsReadRepository {
         rooms.put(room.getRoomNo(), room);
     }
 
-    public void bookRoom(int roomNr, LocalDate fromDate, LocalDate toDate) {
+    public Room bookRoom(int roomNr, LocalDate fromDate, LocalDate toDate) {
         Room room = rooms.get(roomNr);
         room.setReservedFrom(fromDate);
         room.setReservedUntil(toDate);
         rooms.put(roomNr, room);
+        return room;
     }
 
     public void delete() {

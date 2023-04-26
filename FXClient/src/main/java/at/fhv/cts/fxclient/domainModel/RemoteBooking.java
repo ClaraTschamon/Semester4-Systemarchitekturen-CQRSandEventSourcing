@@ -9,13 +9,13 @@ public class RemoteBooking {
     private LocalDate fromDate;
     private LocalDate toDate;
     private RemoteCustomer customer;
-    private Set<Integer> rooms;
+    private Set<RemoteRoom> rooms;
 
     public RemoteBooking() { //necessary for jackson databind library
         super();
     } //necessary for jackson databind library
 
-    public RemoteBooking(String bookingId, LocalDate fromDate, LocalDate toDate, RemoteCustomer customer, Set<Integer> rooms) {
+    public RemoteBooking(String bookingId, LocalDate fromDate, LocalDate toDate, RemoteCustomer customer, Set<RemoteRoom> rooms) {
         this.bookingId = bookingId;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -56,11 +56,11 @@ public class RemoteBooking {
         this.customer = customer;
     }
 
-    public Set<Integer> getRooms() {
+    public Set<RemoteRoom> getRooms() {
         return rooms;
     }
 
-    public void setRooms(Set<Integer> rooms) {
+    public void setRooms(Set<RemoteRoom> rooms) {
         this.rooms = rooms;
     }
 }

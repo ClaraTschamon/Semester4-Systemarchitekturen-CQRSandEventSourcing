@@ -1,9 +1,8 @@
 package at.fhv.cts.readside;
 
+import share.domainModels.*;
+
 import at.fhv.cts.eventside.events.*;
-import at.fhv.cts.readside.domainModel.Booking;
-import at.fhv.cts.readside.domainModel.Customer;
-import at.fhv.cts.readside.domainModel.Room;
 import at.fhv.cts.readside.queries.GetBookingsQuery;
 import at.fhv.cts.readside.queries.GetCustomersQuery;
 import at.fhv.cts.readside.queries.GetFreeRoomsQuery;
@@ -22,44 +21,16 @@ public class ReadsideRestController {
     @Autowired
     private ReadsideCommunicator commmunicator;
 
-    //TODO: zu einem event zusammenführen
+
     //Events
-    @PostMapping(value = "customerCreated")
-    public boolean customerCreated(@RequestBody CustomerCreatedEvent event) {
-        System.out.println("Event received: " + CustomerCreatedEvent.class.getSimpleName());
-        projection.processCustomerCreatedEvent(event);
+    @PostMapping(value = "event")
+    public boolean event(@RequestBody Event event) {
+        System.out.println("Event received: " + event.getClass().getSimpleName());
+        projection.processEvent(event);
         return true;
     }
-
-    @PostMapping(value = "bookingCreated")
-    public boolean bookingCreated(@RequestBody BookingCreatedEvent event) {
-        System.out.println("Event received: " + BookingCreatedEvent.class.getSimpleName());
-        projection.processBookingCreatedEvent(event);
-        return true;
-    }
-
-    @PostMapping(value = "bookingCancelled")
-    public boolean bookingCancelled(@RequestBody BookingCancelledEvent event) {
-        System.out.println("Event received: " + BookingCancelledEvent.class.getSimpleName());
-        projection.processBookingCancelledEvent(event);
-        return true;
-    }
-
-    @PostMapping(value = "dbsDeleted")
-    public boolean dbsDeleted(@RequestBody DBsDeletedEvent event) {
-        System.out.println("Event received: " + DBsDeletedEvent.class.getSimpleName());
-        projection.processDBsDeletedEvent(event);
-        return true;
-    }
-
-    @PostMapping(value = "roomCreated")
-    public boolean roomsCreated(@RequestBody RoomCreatedEvent event) {
-        System.out.println("Event received: " + RoomCreatedEvent.class.getSimpleName());
-        projection.processRoomCreatedEvent(event);
-        return true;
-    }
-
     //--------------------------------------------------------------------------------------------------//
+
     //Queries
     @GetMapping(value = "/freeRooms")
     public List<Room> getFreeRooms(@RequestParam String fromDate, @RequestParam String toDate, @RequestParam int numberOfPeople) {

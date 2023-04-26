@@ -304,7 +304,7 @@ public class MainController implements Initializable {
         bookRoomsGridPane.add(spinner, 0, 5);
 
         Label roomType = new Label("select Room Category");
-        bookRoomsGridPane.add(roomType, 1, 4); //TODO: indexes anpassen
+        bookRoomsGridPane.add(roomType, 1, 4);
 
         Label searchForRooms = new Label("Press 'Search for Rooms' to search for free rooms");
         bookRoomsGridPane.add(searchForRooms, 2, 4);
@@ -379,6 +379,7 @@ public class MainController implements Initializable {
         customerInfoGridPane.add(bookingSuccessLabel, 0, 11);
 
         bookRoomButton.setOnAction(event -> {
+            bookingSuccessLabel.setText("");
             String customerId = restFacade.createCustomer(
                     nameTextField.getText(),
                     addressTextField.getText(),

@@ -7,9 +7,7 @@ public class CreateCustomerCommand {
     private String address;
     private LocalDate birthdate;
 
-    public CreateCustomerCommand () {
-
-    }
+    public CreateCustomerCommand () {} //otherwise com.fasterxml.jackson.databind.exc.MismatchedInputException
 
     public CreateCustomerCommand (String name, String address, LocalDate birthdate) {
         this.name = name;

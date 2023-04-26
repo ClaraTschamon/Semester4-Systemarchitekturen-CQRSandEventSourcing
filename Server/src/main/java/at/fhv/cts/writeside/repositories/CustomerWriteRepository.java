@@ -1,6 +1,6 @@
 package at.fhv.cts.writeside.repositories;
 
-import at.fhv.cts.writeside.domainModel.Customer;
+import share.domainModels.Customer;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;

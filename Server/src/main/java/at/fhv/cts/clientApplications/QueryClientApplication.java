@@ -25,11 +25,7 @@ public class QueryClientApplication {
                 .uri(uriBuilder -> uriBuilder
                         .path("/subscribe")
                         .queryParam("host", "http://localhost:8082")
-                        .queryParam("createdCustomerUrl", "/customerCreated/")
-                        .queryParam("createdBookingUrl", "/bookingCreated/")
-                        .queryParam("cancelledBookingUrl", "/bookingCancelled/")
-                        .queryParam("dbsDeletedUrl", "/dbsDeleted/")
-                        .queryParam("roomCreatedUrl", "/roomCreated/")
+                        .queryParam("eventUrl", "/event/")
                         .build())
                 .retrieve()
                 .bodyToMono(Boolean.class)

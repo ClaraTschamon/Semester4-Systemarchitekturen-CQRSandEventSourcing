@@ -1,9 +1,8 @@
 package at.fhv.cts.readside;
 
+import share.domainModels.*;
+
 import at.fhv.cts.eventside.events.*;
-import at.fhv.cts.readside.domainModel.Booking;
-import at.fhv.cts.readside.domainModel.Customer;
-import at.fhv.cts.readside.domainModel.Room;
 import at.fhv.cts.readside.queries.GetBookingsQuery;
 import at.fhv.cts.readside.queries.GetCustomersQuery;
 import at.fhv.cts.readside.queries.GetFreeRoomsQuery;
@@ -14,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class Projection {
@@ -28,6 +29,20 @@ public class Projection {
     @Autowired
     private RoomsReadRepository freeRoomsReadRepository;
 
+    public void processEvent(Event event) {
+        if(event instanceof BookingCancelledEvent) {
+            processBookingCancelledEvent((BookingCancelledEvent) event);
+        } else if (event instanceof BookingCreatedEvent) {
+            processBookingCreatedEvent((BookingCreatedEvent) event);
+        } else if(event instanceof CustomerCreatedEvent) {
+            processCustomerCreatedEvent((CustomerCreatedEvent) event);
+        } else if(event instanceof DBsDeletedEvent) {
+            processDBsDeletedEvent((DBsDeletedEvent) event);
+        } else if(event instanceof RoomCreatedEvent) {
+            processRoomCreatedEvent((RoomCreatedEvent) event);
+        }
+    }
+
     public void processCustomerCreatedEvent(CustomerCreatedEvent event) {
         Customer customer = new Customer(event.getCustomerId(), event.getName(), event.getAddress(),
                 event.getDateOfBirth());
@@ -37,21 +52,23 @@ public class Projection {
 
     public void processBookingCreatedEvent(BookingCreatedEvent event) {
 
+        Set<Room> rooms = new HashSet<>();
+
         for (Integer roomNumber : event.getRooms()) {
-            freeRoomsReadRepository.bookRoom(roomNumber, event.getFromDate(), event.getToDate());
+            rooms.add(freeRoomsReadRepository.bookRoom(roomNumber, event.getFromDate(), event.getToDate()));
         }
 
         Customer customer = customerReadRepository.getCustomerById(event.getCustomerId());
         Booking booking = new Booking(event.getBookingId(), event.getFromDate(), event.getToDate(),
-                customer, event.getRooms());
+                customer, rooms);
         bookingReadRepository.addBooking(booking);
     }
 
     public void processBookingCancelledEvent(BookingCancelledEvent event) {
         Booking booking = bookingReadRepository.getBookingById(event.getBookingId());
 
-        for (Integer roomNumber : booking.getRooms()) {
-            Room room = freeRoomsReadRepository.getRoomByNumber(roomNumber);
+        for (Room r : booking.getRooms()) {
+            Room room = freeRoomsReadRepository.getRoomByNumber(r.getRoomNo());
             room.setReservedFrom(LocalDate.MIN);
             room.setReservedUntil(LocalDate.MAX);
             freeRoomsReadRepository.updateRoom(room);

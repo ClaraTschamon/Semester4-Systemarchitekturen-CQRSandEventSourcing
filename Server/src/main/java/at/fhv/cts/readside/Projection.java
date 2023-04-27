@@ -69,8 +69,8 @@ public class Projection {
 
         for (Room r : booking.getRooms()) {
             Room room = freeRoomsReadRepository.getRoomByNumber(r.getRoomNo());
-            room.setReservedFrom(LocalDate.MIN);
-            room.setReservedUntil(LocalDate.MAX);
+            room.setReservedFrom(null);
+            room.setReservedUntil(null);
             freeRoomsReadRepository.updateRoom(room);
         }
 
@@ -86,7 +86,7 @@ public class Projection {
     public void processRoomCreatedEvent(RoomCreatedEvent event) {
 
         Room room = new Room(event.getRoomNo(), event.getMaxPersons(), event.getCategory(),
-                LocalDate.MIN, LocalDate.MAX);
+                event.getReservedFrom(), event.getReservedUntil());
         freeRoomsReadRepository.addNewRoom(room);
     }
 

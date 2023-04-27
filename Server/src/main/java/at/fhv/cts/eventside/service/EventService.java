@@ -137,11 +137,33 @@ public class EventService {
                         break;
                     }
                     case "RoomCreatedEvent": {
+                        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
                         int roomNumber = eventData.getInt("roomNo");
                         int maxPersons = eventData.getInt("maxPersons");
                         String category = eventData.getString("category");
                         LocalDateTime timestamp = LocalDateTime.parse(eventData.getString("timestamp"), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-                        RoomCreatedEvent roomCreatedEvent = new RoomCreatedEvent(roomNumber, maxPersons, category, timestamp);
+                        LocalDate reservedFrom;
+                        try { //because rooms are initialized with reservedFrom = null and then reservedFrom is not written to json file
+                            if (eventData.getString("reservedFrom") == null) {
+                                reservedFrom = null;
+                            } else {
+                                reservedFrom = LocalDate.parse(eventData.getString("reservedFrom"), formatter);
+                            }
+
+                        } catch (JSONException e) {
+                            reservedFrom = null;
+                        }
+                        LocalDate reservedUntil;
+                        try {
+                            if (eventData.getString("reservedUntil") == null) {
+                                reservedUntil = null;
+                            } else {
+                                reservedUntil = LocalDate.parse(eventData.getString("reservedUntil"), formatter);
+                            }
+                        } catch (JSONException e) {
+                            reservedUntil = null;
+                        }
+                        RoomCreatedEvent roomCreatedEvent = new RoomCreatedEvent(roomNumber, maxPersons, category, timestamp, reservedFrom, reservedUntil);
                         events.add(roomCreatedEvent);
                         for (EventSubscriber subscriber : subscribers.values()) {
                             subscriber.notify(roomCreatedEvent);

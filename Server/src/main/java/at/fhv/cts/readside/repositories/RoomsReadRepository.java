@@ -4,6 +4,7 @@ import share.domainModels.Room;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,14 +20,20 @@ public class RoomsReadRepository {
     }
 
     public List<Room> getFreeRooms(LocalDate startDate, LocalDate endDate, int maxPersons) {
-        return rooms.values().stream()
-                .filter(room -> room.getMaxPersons() >= maxPersons) // filter out rooms with insufficient capacity
-                //.filter(room -> room.getReservedFrom().isEqual(startDate) || room.getReservedFrom().isBefore(startDate)
-                //&& (room.getReservedUntil().isEqual(endDate) || room.getReservedUntil().isAfter(endDate))) // filter out rooms that are already booked
-                .filter(room -> ((room.getReservedFrom().isBefore(startDate) || room.getReservedFrom().isEqual(startDate)) ||
-                                room.getReservedUntil().isAfter(endDate))
-                        )
-                .collect(Collectors.toList());
+        List<Room> freeRooms = new ArrayList<>();
+        for (Room room : rooms.values()) {
+            if(room.getReservedFrom() == null && room.getReservedUntil() == null) {
+                freeRooms.add(room);
+            } else
+            if (room.getMaxPersons() >= maxPersons
+                    && (room.getReservedFrom().isEqual(startDate) || room.getReservedFrom().isBefore(startDate))
+                    && (room.getReservedUntil().isEqual(endDate) || room.getReservedUntil().isBefore(endDate))
+                    && !(room.getReservedUntil().isAfter(startDate))
+            ) {
+                freeRooms.add(room);
+            }
+        }
+        return freeRooms;
     }
 
     public void updateRoom(Room room) {

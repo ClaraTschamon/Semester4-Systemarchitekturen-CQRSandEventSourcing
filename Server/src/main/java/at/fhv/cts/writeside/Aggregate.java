@@ -112,6 +112,12 @@ public class Aggregate {
         bookingWriteRepository.cancelBooking(booking.getBookingId());
         //
 
+        //make rooms free
+       for(Room room : booking.getRooms()) {
+           roomWriteRepository.freeRoom(room.getRoomNo());
+       }
+       //
+
         //create event
         BookingCancelledEvent event = new BookingCancelledEvent(booking.getBookingId(), LocalDateTime.now());
         return eventPublisher.publishEvent(event);
@@ -142,7 +148,7 @@ public class Aggregate {
 
         for (Room room : rooms.values()) {
             RoomCreatedEvent event = new RoomCreatedEvent(room.getRoomNo(), room.getMaxPersons(), room.getCategory(),
-                    LocalDateTime.now());
+                    LocalDateTime.now(), null, null);
             eventPublisher.publishEvent(event);
         }
 

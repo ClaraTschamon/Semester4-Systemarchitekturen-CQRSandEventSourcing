@@ -63,4 +63,15 @@ public class RemoteBooking {
     public void setRooms(Set<RemoteRoom> rooms) {
         this.rooms = rooms;
     }
+
+    @Override
+    public String toString() {
+        return "RemoteBooking{" +
+                "bookingId='" + bookingId + '\'' +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", customer=" + customer +
+                ", rooms=" + rooms.toString() +
+                '}';
+    }
 }

@@ -303,11 +303,8 @@ public class MainController implements Initializable {
         Spinner<Integer> spinner = new Spinner<>(0, 20, 2);
         bookRoomsGridPane.add(spinner, 0, 5);
 
-        Label roomType = new Label("select Room Category");
-        bookRoomsGridPane.add(roomType, 1, 4);
-
         Label searchForRooms = new Label("Press 'Search for Rooms' to search for free rooms");
-        bookRoomsGridPane.add(searchForRooms, 2, 4);
+        bookRoomsGridPane.add(searchForRooms, 1, 4);
 
         Button searchForRoomsButton = new Button();
         searchForRoomsButton.setText("Search for Rooms");

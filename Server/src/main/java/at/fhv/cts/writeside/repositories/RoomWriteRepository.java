@@ -3,7 +3,6 @@ package at.fhv.cts.writeside.repositories;
 import share.domainModels.Room;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.*;
 
 @Repository
@@ -19,7 +18,7 @@ public class RoomWriteRepository {
             int randomMaxPersonNr = (int) ((Math.random() * 4) + 1); //generates random number between 1 and 4
             int randomCategory = (int) ((Math.random() * 4)); //generates random number between 0 and 3
             rooms.put(roomNo, new Room(roomNo, randomMaxPersonNr, categories.get(randomCategory),
-                    LocalDate.MIN, LocalDate.MAX));
+                    null, null));
             roomNo++;
         }
 
@@ -32,5 +31,11 @@ public class RoomWriteRepository {
 
     public List<Room> getAllRooms() { //just for the purpose of initializing bookings in bookingWriteRepository
         return new ArrayList<>(rooms.values());
+    }
+
+    public void freeRoom(int roomNo) {
+        Room room = rooms.get(roomNo);
+        room.setReservedFrom(null);
+        room.setReservedUntil(null);
     }
 }

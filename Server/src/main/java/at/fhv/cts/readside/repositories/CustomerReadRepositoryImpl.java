@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
-public class CustomerReadRepository implements ICustomerReadRepository{
+public class CustomerReadRepositoryImpl implements ICustomerReadRepository{
 
     Map<String, Customer> customers = new HashMap<>(); //name, customer
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class RoomsReadRepository implements IRoomsReadRepository {
+public class RoomsReadRepositoryImpl implements IRoomsReadRepository {
 
     private Map<Integer, Room> rooms = new HashMap();
 

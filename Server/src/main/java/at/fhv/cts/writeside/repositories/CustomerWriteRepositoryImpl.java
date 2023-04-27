@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Repository
-public class CustomerWriteRepository implements ICustomerWriteRepository {
+public class CustomerWriteRepositoryImpl implements ICustomerWriteRepository {
 
     private Map<UUID, Customer> customers;
 

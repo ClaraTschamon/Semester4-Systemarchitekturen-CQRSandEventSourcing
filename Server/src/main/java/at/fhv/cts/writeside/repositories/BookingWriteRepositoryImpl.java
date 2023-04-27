@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Repository
-public class BookingWriteRepository implements IBookingWriteRepository {
+public class BookingWriteRepositoryImpl implements IBookingWriteRepository {
 
     @Autowired
     private ICustomerWriteRepository customerWriteRepository;

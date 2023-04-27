@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Repository
-public class BookingReadRepository implements IBookingReadRepository {
+public class BookingReadRepositoryImpl implements IBookingReadRepository {
     private Map<String, Booking> bookings = new HashMap<>();
 
     @Override

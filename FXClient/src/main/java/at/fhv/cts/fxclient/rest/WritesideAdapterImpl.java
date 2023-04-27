@@ -76,21 +76,6 @@ public class WritesideAdapterImpl implements IWritesideAdapter {
     @Override
     public boolean bookRooms(LocalDate arrivalDate, LocalDate departureDate,
                              List<Integer> roomNumbers, String customerId) {
-        /*return writesideClient
-                .get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/bookRooms")
-                        .queryParam("arrivalDate", arrivalDate)
-                        .queryParam("departureDate", departureDate)
-                        .queryParam("roomNumbers", roomNumbers)
-                        .queryParam("customerId", customerId)
-                        .build())
-                .retrieve()
-                .bodyToMono(Boolean.class)
-                .block();
-
-         */
-
         BookRoomsCommand command = new BookRoomsCommand(arrivalDate, departureDate, roomNumbers, customerId);
         return writesideClient
                 .post()

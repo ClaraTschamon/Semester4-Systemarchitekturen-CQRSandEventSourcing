@@ -3,9 +3,6 @@ package at.fhv.cts.writeside;
 import at.fhv.cts.eventside.events.*;
 import share.commands.*;
 import share.domainModels.*;
-import at.fhv.cts.writeside.repositories.BookingWriteRepository;
-import at.fhv.cts.writeside.repositories.CustomerWriteRepository;
-import at.fhv.cts.writeside.repositories.RoomWriteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +18,7 @@ import java.util.stream.Collectors;
 public class Aggregate {
 
     @Autowired
-    private BookingWriteRepository bookingWriteRepository;
-
-    @Autowired
-    private CustomerWriteRepository customerWriteRepository;
-
-    @Autowired
-    private RoomWriteRepository roomWriteRepository;
+    IRepositoryFacade repositoryFacade;
 
     @Autowired
     private WritesideEventPublisher eventPublisher;
@@ -42,7 +33,7 @@ public class Aggregate {
 
         //create customer
         Customer customer = new Customer(UUID.randomUUID(), command.getName(), command.getAddress(), command.getBirthdate());
-        customerWriteRepository.createCustomer(customer);
+        repositoryFacade.createCustomer(customer);
 
         CustomerCreatedEvent event = new CustomerCreatedEvent(customer.getId(), customer.getName(),
                 customer.getAddress(), customer.getDateOfBirth(), LocalDateTime.now());
@@ -59,20 +50,21 @@ public class Aggregate {
         if(command.getRooms().isEmpty() || command.getArrivalDate().isBefore(LocalDate.now()) ||
             command.getDepartureDate().isBefore(command.getArrivalDate()) || command.getCustomerId() == null) {
             //delete customer (was already created in handleCreateCustomerCommand)
-            customerWriteRepository.deleteCustomer(command.getCustomerId());
+            repositoryFacade.deleteCustomer(command.getCustomerId());
             return false;
         }
         for(Integer roomNo : command.getRooms()) {
-            Room room = roomWriteRepository.getRoomByNo(roomNo);
+            Room room = repositoryFacade.getRoomByNo(roomNo);
             if(room == null) {
                 //delete customer
-                customerWriteRepository.deleteCustomer(command.getCustomerId());
+                repositoryFacade.deleteCustomer(command.getCustomerId());
                 return false;
             }
-
-            if(!((room.getReservedFrom().isBefore(command.getArrivalDate()) || room.getReservedFrom().isEqual(command.getArrivalDate())) ||
-                    room.getReservedUntil().isAfter(command.getDepartureDate()))) {
-                return false;
+            if(!(room.getReservedFrom() == null && room.getReservedUntil() == null)) {
+                if (!((room.getReservedFrom().isBefore(command.getArrivalDate()) || room.getReservedFrom().isEqual(command.getArrivalDate())) ||
+                        room.getReservedUntil().isAfter(command.getDepartureDate()))) {
+                    return false;
+                }
             }
         }
         //
@@ -80,16 +72,16 @@ public class Aggregate {
         //create booking
         Set<Room> rooms = new HashSet<>();
         for(Integer roomNo : command.getRooms()) {
-            Room room = roomWriteRepository.getRoomByNo(roomNo);
+            Room room = repositoryFacade.getRoomByNo(roomNo);
             rooms.add(room);
         }
 
-        Customer customer = customerWriteRepository.getCustomerById(command.getCustomerId());
+        Customer customer = repositoryFacade.getCustomerById(command.getCustomerId());
 
         Booking booking = new Booking(UUID.randomUUID().toString(), command.getArrivalDate(), command.getDepartureDate(),
                 customer, rooms);
 
-        bookingWriteRepository.createBooking(booking);
+        repositoryFacade.createBooking(booking);
         //
 
         //create event
@@ -102,19 +94,19 @@ public class Aggregate {
 
     public boolean handleCancelBookingCommand(CancelBookingCommand command) {
         //validation
-        Booking booking = bookingWriteRepository.getBookingById(command.getBookingId());
+        Booking booking = repositoryFacade.getBookingById(command.getBookingId());
         if (booking == null) {
             return false;
         }
         //
 
         //cancel booking
-        bookingWriteRepository.cancelBooking(booking.getBookingId());
+        repositoryFacade.cancelBooking(booking.getBookingId());
         //
 
         //make rooms free
        for(Room room : booking.getRooms()) {
-           roomWriteRepository.freeRoom(room.getRoomNo());
+           repositoryFacade.freeRoom(room.getRoomNo());
        }
        //
 
@@ -133,9 +125,9 @@ public class Aggregate {
 
     public void initializeDBs() {
         //initialize DBs
-        Map<UUID, Customer> customers = customerWriteRepository.initializeCustomers();
-        Map<Integer, Room> rooms = roomWriteRepository.initializeRooms();
-        Map<String, Booking> bookings = bookingWriteRepository.initializeBookingList();
+        Map<UUID, Customer> customers = repositoryFacade.initializeCustomers();
+        Map<Integer, Room> rooms = repositoryFacade.initializeRooms();
+        Map<String, Booking> bookings = repositoryFacade.initializeBookingList();
         //
 
         //create events

@@ -6,7 +6,7 @@ import at.fhv.cts.fxclient.domainModel.RemoteEvent;
 import at.fhv.cts.fxclient.domainModel.RemoteRoom;
 import at.fhv.cts.fxclient.rest.IRestFacade;
 import at.fhv.cts.fxclient.rest.ReadsideAdapterImpl;
-import at.fhv.cts.fxclient.rest.RestFacade;
+import at.fhv.cts.fxclient.rest.RestFacadeImpl;
 import at.fhv.cts.fxclient.rest.WritesideAdapterImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -68,7 +68,7 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ReadsideAdapterImpl readsideAdapter = new ReadsideAdapterImpl();
         WritesideAdapterImpl writesideAdapter = new WritesideAdapterImpl();
-        restFacade = new RestFacade(readsideAdapter, writesideAdapter);
+        restFacade = new RestFacadeImpl(readsideAdapter, writesideAdapter);
 
         root = new VBox();
         scrollpane.setContent(root);

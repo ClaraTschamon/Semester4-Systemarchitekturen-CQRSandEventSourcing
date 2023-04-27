@@ -8,13 +8,13 @@ import at.fhv.cts.fxclient.domainModel.RemoteRoom;
 import java.time.LocalDate;
 import java.util.List;
 
-public class RestFacade implements IRestFacade {
+public class RestFacadeImpl implements IRestFacade {
 
     private IReadsideAdapter readsideAdapter;
 
     private IWritesideAdapter writesideAdapter;
 
-    public RestFacade(IReadsideAdapter readsideAdapter, IWritesideAdapter writesideAdapter) {
+    public RestFacadeImpl(IReadsideAdapter readsideAdapter, IWritesideAdapter writesideAdapter) {
         this.readsideAdapter = readsideAdapter;
         this.writesideAdapter = writesideAdapter;
     }

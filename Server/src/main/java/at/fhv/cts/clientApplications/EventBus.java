@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan("at.fhv.cts.eventside")
 public class EventBus {
-
     public static void main(String[] args) {
         SpringApplication.run(EventBus.class, args);
     }

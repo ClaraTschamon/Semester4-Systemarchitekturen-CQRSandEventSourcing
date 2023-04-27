@@ -7,10 +7,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
-public class CustomerReadRepository {
+public class CustomerReadRepository implements ICustomerReadRepository{
 
     Map<String, Customer> customers = new HashMap<>(); //name, customer
 
+    @Override
     public Customer getCustomerById(UUID id) {
         return customers.values().stream()
                 .filter(customer -> customer.getId().equals(id))
@@ -18,21 +19,25 @@ public class CustomerReadRepository {
                 .orElse(null);
     }
 
+    @Override
     public List<Customer> getCustomers() {
         return new ArrayList<>(customers.values());
     }
 
+    @Override
     public List<Customer> getCustomers(String name) {
         return customers.values().stream()
                 .filter(customer -> customer.getName().contains(name))
                 .collect(Collectors.toList());
     }
 
+    @Override
     public void insertCustomer(Customer customer) {
         customers.put(customer.getName(), customer);
     }
 
-    public void delete() {
+    @Override
+    public void deleteCustomer() {
         customers.clear();
     }
 }

@@ -7,10 +7,11 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Repository
-public class CustomerWriteRepository {
+public class CustomerWriteRepository implements ICustomerWriteRepository {
 
     private Map<UUID, Customer> customers;
 
+    @Override
     public Map<UUID, Customer> initializeCustomers() {
         List<Customer> myCustomers = new ArrayList<>();
         customers = new HashMap<>();
@@ -28,14 +29,17 @@ public class CustomerWriteRepository {
         return customers;
     }
 
+    @Override
     public void createCustomer(Customer customer) {
         customers.putIfAbsent(customer.getId(), customer);
     }
 
+    @Override
     public Customer getCustomerById(String id) {
         return customers.get(UUID.fromString(id));
     }
 
+    @Override
     public Customer getRandomCustomer() { //nur um bookings zu initialisieren in bookingWriteRepository
         Random random = new Random();
         int randomIndex = random.nextInt(customers.size());
@@ -43,6 +47,7 @@ public class CustomerWriteRepository {
         return customerList.get(randomIndex);
     }
 
+    @Override
     public void deleteCustomer(String customerId) {
         customers.remove(UUID.fromString(customerId));
     }

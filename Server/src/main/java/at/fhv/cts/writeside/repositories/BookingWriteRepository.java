@@ -8,28 +8,32 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Repository
-public class BookingWriteRepository {
+public class BookingWriteRepository implements IBookingWriteRepository {
 
     @Autowired
-    private CustomerWriteRepository customerWriteRepository;
+    private ICustomerWriteRepository customerWriteRepository;
 
     @Autowired
-    private RoomWriteRepository roomWriteRepository;
+    private IRoomWriteRepository roomWriteRepository;
 
     private Map<String, Booking> bookings = new HashMap<>();
 
+    @Override
     public void createBooking(Booking booking) {
         bookings.put(booking.getBookingId(), booking);
     }
 
+    @Override
     public Booking getBookingById(String id) {
         return bookings.get(id);
     }
 
+    @Override
     public void cancelBooking(String bookingId) {
         bookings.remove(bookingId);
     }
 
+    @Override
     public Map<String, Booking> initializeBookingList() {
         bookings = new HashMap<>();
         List<Room> allRooms = roomWriteRepository.getAllRooms(); //just for the purpose of initializing bookings

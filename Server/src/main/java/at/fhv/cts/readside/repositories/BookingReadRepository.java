@@ -10,14 +10,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Repository
-public class BookingReadRepository {
+public class BookingReadRepository implements IBookingReadRepository {
     private Map<String, Booking> bookings = new HashMap<>();
 
-
+    @Override
     public Booking getBookingById(String bookingId) {
         return bookings.get(bookingId);
     }
 
+    @Override
     public List<Booking> getBookings(LocalDate arrivalDate, LocalDate departureDate) {
         //minusDays(1) and plusDays(1) because I want the bookins which are after of equal arrival date and before of equal departure date
         return bookings.values().stream()
@@ -27,15 +28,18 @@ public class BookingReadRepository {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public void cancelBooking(String bookingId) {
         bookings.remove(bookingId);
     }
 
+    @Override
     public void addBooking(Booking booking) {
         bookings.put(booking.getBookingId(), booking);
     }
 
-    public void delete() {
+    @Override
+    public void deleteBookings() {
         bookings.clear();
     }
 }

@@ -6,13 +6,9 @@ import at.fhv.cts.eventside.events.*;
 import at.fhv.cts.readside.queries.GetBookingsQuery;
 import at.fhv.cts.readside.queries.GetCustomersQuery;
 import at.fhv.cts.readside.queries.GetFreeRoomsQuery;
-import at.fhv.cts.readside.repositories.BookingReadRepository;
-import at.fhv.cts.readside.repositories.CustomerReadRepository;
-import at.fhv.cts.readside.repositories.RoomsReadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,13 +17,7 @@ import java.util.Set;
 public class Projection {
 
     @Autowired
-    private CustomerReadRepository customerReadRepository;
-
-    @Autowired
-    private BookingReadRepository bookingReadRepository;
-
-    @Autowired
-    private RoomsReadRepository freeRoomsReadRepository;
+    IRepositoryFacade repositoryFacade;
 
     public void processEvent(Event event) {
         if(event instanceof BookingCancelledEvent) {
@@ -47,7 +37,7 @@ public class Projection {
         Customer customer = new Customer(event.getCustomerId(), event.getName(), event.getAddress(),
                 event.getDateOfBirth());
 
-        customerReadRepository.insertCustomer(customer);
+        repositoryFacade.insertCustomer(customer);
     }
 
     public void processBookingCreatedEvent(BookingCreatedEvent event) {
@@ -55,56 +45,56 @@ public class Projection {
         Set<Room> rooms = new HashSet<>();
 
         for (Integer roomNumber : event.getRooms()) {
-            rooms.add(freeRoomsReadRepository.bookRoom(roomNumber, event.getFromDate(), event.getToDate()));
+            rooms.add(repositoryFacade.bookRoom(roomNumber, event.getFromDate(), event.getToDate()));
         }
 
-        Customer customer = customerReadRepository.getCustomerById(event.getCustomerId());
+        Customer customer = repositoryFacade.getCustomerById(event.getCustomerId());
         Booking booking = new Booking(event.getBookingId(), event.getFromDate(), event.getToDate(),
                 customer, rooms);
-        bookingReadRepository.addBooking(booking);
+        repositoryFacade.addBooking(booking);
     }
 
     public void processBookingCancelledEvent(BookingCancelledEvent event) {
-        Booking booking = bookingReadRepository.getBookingById(event.getBookingId());
+        Booking booking = repositoryFacade.getBookingById(event.getBookingId());
 
         for (Room r : booking.getRooms()) {
-            Room room = freeRoomsReadRepository.getRoomByNumber(r.getRoomNo());
+            Room room = repositoryFacade.getRoomByNumber(r.getRoomNo());
             room.setReservedFrom(null);
             room.setReservedUntil(null);
-            freeRoomsReadRepository.updateRoom(room);
+            repositoryFacade.putRoom(room);
         }
 
-        bookingReadRepository.cancelBooking(event.getBookingId());
+        repositoryFacade.cancelBooking(event.getBookingId());
     }
 
     public void processDBsDeletedEvent(DBsDeletedEvent event) {
-        customerReadRepository.delete();
-        bookingReadRepository.delete();
-        freeRoomsReadRepository.delete();
+        repositoryFacade.deleteCustomer();
+        repositoryFacade.deleteBookings();
+        repositoryFacade.deleteRooms();
     }
 
     public void processRoomCreatedEvent(RoomCreatedEvent event) {
 
         Room room = new Room(event.getRoomNo(), event.getMaxPersons(), event.getCategory(),
                 event.getReservedFrom(), event.getReservedUntil());
-        freeRoomsReadRepository.addNewRoom(room);
+        repositoryFacade.putRoom(room);
     }
 
 
     //-------------------------------------------------------------------------------------------------------//
 
     public List<Room> handleGetFreeRoomsQuery(GetFreeRoomsQuery query) {
-        return freeRoomsReadRepository.getFreeRooms(query.getFromDate(), query.getToDate(), query.getNrOfPersons());
+        return repositoryFacade.getFreeRooms(query.getFromDate(), query.getToDate(), query.getNrOfPersons());
     }
 
     public List<Booking> handleGetBookingsQuery(GetBookingsQuery query) {
-        return bookingReadRepository.getBookings(query.getFromDate(), query.getToDate());
+        return repositoryFacade.getBookings(query.getFromDate(), query.getToDate());
     }
 
     public List<Customer> handleGetCustomerQuery(GetCustomersQuery query) {
         if (query.getName() == null) {
-            return customerReadRepository.getCustomers();
+            return repositoryFacade.getCustomers();
         }
-        return customerReadRepository.getCustomers(query.getName());
+        return repositoryFacade.getCustomers(query.getName());
     }
 }

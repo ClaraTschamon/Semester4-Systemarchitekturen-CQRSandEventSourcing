@@ -8,17 +8,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Repository
-public class RoomsReadRepository {
+public class RoomsReadRepository implements IRoomsReadRepository {
 
     private Map<Integer, Room> rooms = new HashMap();
 
+    @Override
     public Room getRoomByNumber(int roomNo) {
         return rooms.get(roomNo);
     }
 
+    @Override
     public List<Room> getFreeRooms(LocalDate startDate, LocalDate endDate, int maxPersons) {
         List<Room> freeRooms = new ArrayList<>();
         for (Room room : rooms.values()) {
@@ -36,10 +37,12 @@ public class RoomsReadRepository {
         return freeRooms;
     }
 
-    public void updateRoom(Room room) {
+    @Override
+    public void putRoom(Room room) {
         rooms.put(room.getRoomNo(), room);
     }
 
+    @Override
     public Room bookRoom(int roomNr, LocalDate fromDate, LocalDate toDate) {
         Room room = rooms.get(roomNr);
         room.setReservedFrom(fromDate);
@@ -48,11 +51,8 @@ public class RoomsReadRepository {
         return room;
     }
 
-    public void delete() {
+    @Override
+    public void deleteRooms() {
         rooms.clear();
-    }
-
-    public void addNewRoom(Room room) {
-        rooms.put(room.getRoomNo(), room);
     }
 }

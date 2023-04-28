@@ -1,6 +1,6 @@
 package at.fhv.cts.readside.repositories;
 
-import share.domainModels.Customer;
+import at.fhv.cts.readside.domainModels.Customer;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;

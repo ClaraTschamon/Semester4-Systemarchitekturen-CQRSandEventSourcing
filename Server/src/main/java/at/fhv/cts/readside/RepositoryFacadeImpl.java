@@ -1,16 +1,16 @@
 package at.fhv.cts.readside;
 
+import at.fhv.cts.readside.repositories.IBookedRoomsReadRepository;
 import at.fhv.cts.readside.repositories.IBookingReadRepository;
 import at.fhv.cts.readside.repositories.ICustomerReadRepository;
 import at.fhv.cts.readside.repositories.IRoomsReadRepository;
+import at.fhv.cts.readside.domainModels.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import share.domainModels.Booking;
-import share.domainModels.Customer;
-import share.domainModels.Room;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Component
@@ -24,6 +24,9 @@ public class RepositoryFacadeImpl implements IRepositoryFacade {
 
     @Autowired
     IRoomsReadRepository roomsReadRepository;
+
+    @Autowired
+    IBookedRoomsReadRepository bookedRoomsReadRepository;
 
     //customers
     @Override
@@ -64,8 +67,9 @@ public class RepositoryFacadeImpl implements IRepositoryFacade {
     }
 
     @Override
-    public void cancelBooking(String bookingId) {
-        bookingReadRepository.cancelBooking(bookingId);
+    public void cancelBooking(Booking booking) {
+        bookingReadRepository.cancelBooking(booking.getBookingId());
+        bookedRoomsReadRepository.deleteBookedRooms(booking.getFromDate(), booking.getToDate(), booking.getRooms());
     }
 
     @Override
@@ -86,23 +90,30 @@ public class RepositoryFacadeImpl implements IRepositoryFacade {
     }
 
     @Override
-    public List<Room> getFreeRooms(LocalDate startDate, LocalDate endDate, int maxPersons) {
-        return roomsReadRepository.getFreeRooms(startDate, endDate, maxPersons);
-    }
-
-    @Override
     public void putRoom(Room room) {
         roomsReadRepository.putRoom(room);
     }
 
     @Override
-    public Room bookRoom(int roomNr, LocalDate fromDate, LocalDate toDate) {
-        return roomsReadRepository.bookRoom(roomNr, fromDate, toDate);
+    public void deleteRooms() {
+        roomsReadRepository.deleteRooms();
+    }
+    //
+
+    //bookedRooms
+    @Override
+    public void deleteBookedRooms(LocalDate fromDate, LocalDate toDate, Set<Integer> roomNumbers) {
+        bookedRoomsReadRepository.deleteBookedRooms(fromDate, toDate, roomNumbers);
     }
 
     @Override
-    public void deleteRooms() {
-        roomsReadRepository.deleteRooms();
+    public void bookRooms(LocalDate fromDate, LocalDate toDate, Set<Integer> roomNumbers) {
+        bookedRoomsReadRepository.bookRooms(fromDate, toDate, roomNumbers);
+    }
+
+    @Override
+    public List<Room> getFreeRooms(LocalDate fromDate, LocalDate toDate, int numberOfPersons) {
+        return bookedRoomsReadRepository.getFreeRooms(fromDate, toDate, numberOfPersons);
     }
     //
 }

@@ -1,10 +1,9 @@
-package share.domainModels;
+package at.fhv.cts.writeside.domainModels;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 public class Booking {
-
     private String bookingId;
     private LocalDate fromDate;
     private LocalDate toDate;

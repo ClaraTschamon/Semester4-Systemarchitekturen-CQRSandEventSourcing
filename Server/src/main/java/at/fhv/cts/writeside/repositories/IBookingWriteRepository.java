@@ -1,6 +1,6 @@
 package at.fhv.cts.writeside.repositories;
 
-import share.domainModels.Booking;
+import at.fhv.cts.writeside.domainModels.Booking;
 
 import java.util.Map;
 
@@ -12,4 +12,6 @@ public interface IBookingWriteRepository {
     void cancelBooking(String bookingId);
 
     Map<String, Booking> initializeBookingList();
+
+    Map<String, Booking> getAllBookings();
 }

@@ -1,7 +1,7 @@
 package at.fhv.cts.writeside;
 
+import at.fhv.cts.writeside.domainModels.*;
 import share.commands.*;
-import share.domainModels.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import share.events.*;
@@ -59,14 +59,25 @@ public class Aggregate {
                 repositoryFacade.deleteCustomer(command.getCustomerId());
                 return false;
             }
-            if(!(room.getReservedFrom() == null && room.getReservedUntil() == null)) {
-                if (!((room.getReservedFrom().isBefore(command.getArrivalDate()) || room.getReservedFrom().isEqual(command.getArrivalDate())) ||
-                        room.getReservedUntil().isAfter(command.getDepartureDate()))) {
-                    return false;
+        }
+
+        //check if arrival and departure dates in booking intercepts with command.getArrivalDate() and command.getDepartureDate()
+        //get all bookings
+        Map<String, Booking> bookings = repositoryFacade.getAllBookings();
+        for(Booking booking : bookings.values()) {
+            if(!((booking.getFromDate().isBefore(command.getArrivalDate()) || booking.getFromDate().isEqual(command.getArrivalDate())) ||
+                    booking.getToDate().isAfter(command.getDepartureDate()))) {
+                //check if rooms are contained in booking
+                for(Room room : booking.getRooms()) {
+                    if(command.getRooms().contains(room.getRoomNo())) {
+                        repositoryFacade.deleteCustomer(command.getCustomerId());
+                        return false;
+                    }
                 }
             }
         }
         //
+
 
         //create booking
         Set<Room> rooms = new HashSet<>();
@@ -102,12 +113,6 @@ public class Aggregate {
         //cancel booking
         repositoryFacade.cancelBooking(booking.getBookingId());
         //
-
-        //make rooms free
-       for(Room room : booking.getRooms()) {
-           repositoryFacade.freeRoom(room.getRoomNo());
-       }
-       //
 
         //create event
         BookingCancelledEvent event = new BookingCancelledEvent(booking.getBookingId());

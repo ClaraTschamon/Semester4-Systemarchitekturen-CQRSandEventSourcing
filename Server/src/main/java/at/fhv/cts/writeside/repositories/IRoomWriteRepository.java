@@ -1,6 +1,6 @@
 package at.fhv.cts.writeside.repositories;
 
-import share.domainModels.Room;
+import at.fhv.cts.writeside.domainModels.Room;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +11,4 @@ public interface IRoomWriteRepository {
     Room getRoomByNo(int roomNo);
 
     List<Room> getAllRooms();
-
-    void freeRoom(int roomNo);
 }

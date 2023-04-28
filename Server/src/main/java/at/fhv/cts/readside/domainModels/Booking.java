@@ -1,21 +1,16 @@
-package at.fhv.cts.fxclient.domainModel;
+package at.fhv.cts.readside.domainModels;
 
 import java.time.LocalDate;
 import java.util.Set;
 
-public class RemoteBooking {
-
+public class Booking {
     private String bookingId;
     private LocalDate fromDate;
     private LocalDate toDate;
-    private RemoteCustomer customer;
+    private Customer customer;
     private Set<Integer> rooms;
 
-    public RemoteBooking() { //necessary for jackson databind library
-        super();
-    } //necessary for jackson databind library
-
-    public RemoteBooking(String bookingId, LocalDate fromDate, LocalDate toDate, RemoteCustomer customer, Set<Integer> rooms) {
+    public Booking(String bookingId, LocalDate fromDate, LocalDate toDate, Customer customer, Set<Integer> rooms) {
         this.bookingId = bookingId;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -23,7 +18,6 @@ public class RemoteBooking {
         this.rooms = rooms;
     }
 
-    //getter and setter needed for fx tableview
     public String getBookingId() {
         return bookingId;
     }
@@ -48,11 +42,11 @@ public class RemoteBooking {
         this.toDate = toDate;
     }
 
-    public RemoteCustomer getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(RemoteCustomer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
@@ -62,16 +56,5 @@ public class RemoteBooking {
 
     public void setRooms(Set<Integer> rooms) {
         this.rooms = rooms;
-    }
-
-    @Override
-    public String toString() {
-        return "RemoteBooking{" +
-                "bookingId='" + bookingId + '\'' +
-                ", fromDate=" + fromDate +
-                ", toDate=" + toDate +
-                ", customer=" + customer +
-                ", rooms=" + rooms +
-                '}';
     }
 }

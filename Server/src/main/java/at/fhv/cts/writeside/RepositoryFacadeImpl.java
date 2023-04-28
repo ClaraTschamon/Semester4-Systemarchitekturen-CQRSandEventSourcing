@@ -5,9 +5,7 @@ import at.fhv.cts.writeside.repositories.ICustomerWriteRepository;
 import at.fhv.cts.writeside.repositories.IRoomWriteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import share.domainModels.Booking;
-import share.domainModels.Customer;
-import share.domainModels.Room;
+import at.fhv.cts.writeside.domainModels.*;
 
 import java.util.List;
 import java.util.Map;
@@ -68,10 +66,6 @@ public class RepositoryFacadeImpl implements IRepositoryFacade {
         return roomWriteRepository.getAllRooms();
     }
 
-    @Override
-    public void freeRoom(int roomNo) {
-        roomWriteRepository.freeRoom(roomNo);
-    }
     //
 
     //bookings
@@ -93,6 +87,11 @@ public class RepositoryFacadeImpl implements IRepositoryFacade {
     @Override
     public Map<String, Booking> initializeBookingList() {
         return bookingWriteRepository.initializeBookingList();
+    }
+
+    @Override
+    public Map<String, Booking> getAllBookings() {
+        return bookingWriteRepository.getAllBookings();
     }
     //
 }

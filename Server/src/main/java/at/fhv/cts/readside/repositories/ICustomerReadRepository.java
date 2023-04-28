@@ -1,6 +1,7 @@
 package at.fhv.cts.readside.repositories;
 
-import share.domainModels.Customer;
+
+import at.fhv.cts.readside.domainModels.Customer;
 
 import java.util.List;
 import java.util.UUID;

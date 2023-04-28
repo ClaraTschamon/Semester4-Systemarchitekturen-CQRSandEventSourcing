@@ -30,6 +30,7 @@ public class MainController implements Initializable {
     private IRestFacade restFacade;
 
     private final String FONT_BOLD = "-fx-font-weight: bold";
+    private final Label cancelBookingResultLabel = new Label();
     @FXML
     private ScrollPane scrollpane;
     private VBox root;
@@ -41,6 +42,7 @@ public class MainController implements Initializable {
     private GridPane searchFreeRoomsGridPane;
     private GridPane customerInfoGridPane;
     private GridPane allEventsGridPane;
+
     private TableView<RemoteCustomer> customersTableView;
     private TableColumn<RemoteCustomer, UUID> customerIdColumn;
     private TableColumn<RemoteCustomer, String> customerNameColumn;
@@ -263,7 +265,6 @@ public class MainController implements Initializable {
         cancelBookingButton.setText("Cancel Booking");
         cancelBookingGridPane.add(cancelBookingButton, 1, 2);
 
-        Label cancelBookingResultLabel = new Label();
         cancelBookingGridPane.add(cancelBookingResultLabel, 0, 3);
 
         cancelBookingButton.disableProperty().bind(bookingIdTextField.textProperty().isEmpty());
@@ -320,6 +321,8 @@ public class MainController implements Initializable {
     }
 
     private void onSearchForRoomsButtonClicked(LocalDate arrivalDate, LocalDate departureDate, int maxPersons) {
+        //remove content from customerInfoGridPane
+        customerInfoGridPane.getChildren().removeAll(customerInfoGridPane.getChildren());
 
         Label label = new Label("Select a Room");
         customerInfoGridPane.add(label, 0, 0);
@@ -376,7 +379,6 @@ public class MainController implements Initializable {
         customerInfoGridPane.add(bookingSuccessLabel, 0, 11);
 
         bookRoomButton.setOnAction(event -> {
-            bookingSuccessLabel.setText("");
             String customerId = restFacade.createCustomer(
                     nameTextField.getText(),
                     addressTextField.getText(),

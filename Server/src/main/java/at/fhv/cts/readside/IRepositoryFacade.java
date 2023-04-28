@@ -1,11 +1,12 @@
 package at.fhv.cts.readside;
 
-import share.domainModels.Booking;
-import share.domainModels.Customer;
-import share.domainModels.Room;
+import at.fhv.cts.readside.domainModels.Booking;
+import at.fhv.cts.readside.domainModels.Customer;
+import at.fhv.cts.readside.domainModels.Room;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface IRepositoryFacade {
@@ -21,16 +22,21 @@ public interface IRepositoryFacade {
     //bookings
     Booking getBookingById(String bookingId);
     List<Booking> getBookings(LocalDate arrivalDate, LocalDate departureDate);
-    void cancelBooking(String bookingId);
+    void cancelBooking(Booking booking);
     void addBooking(Booking booking);
     void deleteBookings();
     //
 
     //rooms
     Room getRoomByNumber(int roomNo);
-    List<Room> getFreeRooms(LocalDate startDate, LocalDate endDate, int maxPersons);
     void putRoom(Room room);
-    Room bookRoom(int roomNr, LocalDate fromDate, LocalDate toDate);
     void deleteRooms();
+    //
+
+    //bookedRooms
+    //TODO: why never used?
+    void deleteBookedRooms(LocalDate fromDate, LocalDate toDate, Set<Integer> roomNumbers);
+    void bookRooms(LocalDate fromDate, LocalDate toDate, Set<Integer> roomNumbers);
+    List<Room> getFreeRooms(LocalDate fromDate, LocalDate toDate, int numberOfPersons);
     //
 }

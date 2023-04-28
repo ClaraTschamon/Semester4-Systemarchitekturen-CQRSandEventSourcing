@@ -1,6 +1,6 @@
 package at.fhv.cts.readside.repositories;
 
-import share.domainModels.Booking;
+import at.fhv.cts.readside.domainModels.Booking;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;

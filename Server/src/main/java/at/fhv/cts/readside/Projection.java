@@ -1,6 +1,6 @@
 package at.fhv.cts.readside;
 
-import share.domainModels.*;
+import at.fhv.cts.readside.domainModels.*;
 
 import at.fhv.cts.readside.queries.GetBookingsQuery;
 import at.fhv.cts.readside.queries.GetCustomersQuery;
@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import share.events.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class Projection {
@@ -42,29 +40,17 @@ public class Projection {
 
     public void processBookingCreatedEvent(BookingCreatedEvent event) {
 
-        Set<Room> rooms = new HashSet<>();
-
-        for (Integer roomNumber : event.getRooms()) {
-            rooms.add(repositoryFacade.bookRoom(roomNumber, event.getFromDate(), event.getToDate()));
-        }
-
         Customer customer = repositoryFacade.getCustomerById(event.getCustomerId());
         Booking booking = new Booking(event.getBookingId(), event.getFromDate(), event.getToDate(),
-                customer, rooms);
+                customer, event.getRooms());
         repositoryFacade.addBooking(booking);
+        repositoryFacade.bookRooms(booking.getFromDate(), booking.getToDate(), booking.getRooms());
     }
 
     public void processBookingCancelledEvent(BookingCancelledEvent event) {
         Booking booking = repositoryFacade.getBookingById(event.getBookingId());
 
-        for (Room r : booking.getRooms()) {
-            Room room = repositoryFacade.getRoomByNumber(r.getRoomNo());
-            room.setReservedFrom(null);
-            room.setReservedUntil(null);
-            repositoryFacade.putRoom(room);
-        }
-
-        repositoryFacade.cancelBooking(event.getBookingId());
+        repositoryFacade.cancelBooking(booking);
     }
 
     public void processDBsDeletedEvent(DBsDeletedEvent event) {
@@ -74,9 +60,7 @@ public class Projection {
     }
 
     public void processRoomCreatedEvent(RoomCreatedEvent event) {
-
-        Room room = new Room(event.getRoomNo(), event.getMaxPersons(), event.getCategory(),
-                event.getReservedFrom(), event.getReservedUntil());
+        Room room = new Room(event.getRoomNo(), event.getMaxPersons(), event.getCategory());
         repositoryFacade.putRoom(room);
     }
 

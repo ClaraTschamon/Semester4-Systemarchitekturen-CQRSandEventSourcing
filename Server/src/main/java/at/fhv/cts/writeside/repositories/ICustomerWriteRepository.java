@@ -1,6 +1,6 @@
 package at.fhv.cts.writeside.repositories;
 
-import share.domainModels.Customer;
+import at.fhv.cts.writeside.domainModels.Customer;
 
 import java.util.Map;
 import java.util.UUID;

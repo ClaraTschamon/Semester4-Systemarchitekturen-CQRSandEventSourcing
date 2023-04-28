@@ -1,8 +1,6 @@
 package at.fhv.cts.writeside;
 
-import share.domainModels.Booking;
-import share.domainModels.Customer;
-import share.domainModels.Room;
+import at.fhv.cts.writeside.domainModels.*;
 
 import java.util.List;
 import java.util.Map;
@@ -28,7 +26,6 @@ public interface IRepositoryFacade {
 
     List<Room> getAllRooms();
 
-    void freeRoom(int roomNo);
     //
 
     //bookings
@@ -39,5 +36,7 @@ public interface IRepositoryFacade {
     void cancelBooking(String bookingId);
 
     Map<String, Booking> initializeBookingList();
+
+    Map<String, Booking> getAllBookings();
     //
 }

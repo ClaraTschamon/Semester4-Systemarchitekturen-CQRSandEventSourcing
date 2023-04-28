@@ -1,24 +1,16 @@
-package at.fhv.cts.fxclient.domainModel;
+package at.fhv.cts.readside.domainModels;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class RemoteRoom {
+public class Room {
     private int roomNo;
     private int maxPersons;
     private String category;
 
-    public RemoteRoom() { //necessary for jackson databind library
-        super();
-    } //necessary for jackson databind library
-
-    public RemoteRoom (int rommNo, int maxPersons, String category) {
-        this.roomNo = rommNo;
+    public Room(int roomNo, int maxPersons, String category) {
+        this.roomNo = roomNo;
         this.maxPersons = maxPersons;
         this.category = category;
     }
 
-    //getter and setter needed for fx tableview
     public int getRoomNo() {
         return roomNo;
     }
@@ -41,10 +33,5 @@ public class RemoteRoom {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    @Override
-    public String toString() { //for tableview
-        return roomNo + " ";
     }
 }

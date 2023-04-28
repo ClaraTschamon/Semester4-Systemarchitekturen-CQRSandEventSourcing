@@ -1,6 +1,6 @@
 package at.fhv.cts.writeside.repositories;
 
-import share.domainModels.*;
+import at.fhv.cts.writeside.domainModels.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -72,6 +72,11 @@ public class BookingWriteRepositoryImpl implements IBookingWriteRepository {
         bookings.put(booking3.getBookingId(), booking3);
         bookings.put(booking4.getBookingId(), booking4);
 
+        return bookings;
+    }
+
+    @Override
+    public Map<String, Booking> getAllBookings() {
         return bookings;
     }
 }

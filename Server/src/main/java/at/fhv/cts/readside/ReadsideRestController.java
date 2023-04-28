@@ -1,7 +1,8 @@
 package at.fhv.cts.readside;
 
-import share.domainModels.*;
-
+import at.fhv.cts.readside.domainModels.Booking;
+import at.fhv.cts.readside.domainModels.Customer;
+import at.fhv.cts.readside.domainModels.Room;
 import at.fhv.cts.readside.queries.GetBookingsQuery;
 import at.fhv.cts.readside.queries.GetCustomersQuery;
 import at.fhv.cts.readside.queries.GetFreeRoomsQuery;

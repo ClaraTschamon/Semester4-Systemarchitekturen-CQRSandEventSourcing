@@ -1,9 +1,9 @@
 package at.fhv.cts.eventside.service;
 
-import at.fhv.cts.eventside.events.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+import share.events.Event;
 
 public class EventSubscriber {
 

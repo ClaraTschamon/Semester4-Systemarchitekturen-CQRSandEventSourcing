@@ -1,10 +1,15 @@
-package at.fhv.cts.eventside.events;
+package share.events;
 
 
 import java.time.LocalDateTime;
 
 public class BookingCancelledEvent extends Event {
     private String bookingId;
+
+    public BookingCancelledEvent(String bookingId) {
+        super(LocalDateTime.now());
+        this.bookingId = bookingId;
+    }
 
     public BookingCancelledEvent(String bookingId, LocalDateTime timestamp) {
         super(timestamp);

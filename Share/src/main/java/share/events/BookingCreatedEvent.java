@@ -1,4 +1,4 @@
-package at.fhv.cts.eventside.events;
+package share.events;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,6 +12,21 @@ public class BookingCreatedEvent extends Event{
     private UUID customerId;
     private Set<Integer> rooms;
 
+    public BookingCreatedEvent() {
+        super(LocalDateTime.now());
+    }
+
+    public BookingCreatedEvent(String bookingId, LocalDate fromDate, LocalDate toDate,
+                               UUID customerId, Set<Integer> rooms) { //called in writeside
+        super(LocalDateTime.now());
+        this.bookingId = bookingId;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.customerId = customerId;
+        this.rooms = rooms;
+    }
+
+    //for eventside when reading out events from file
     public BookingCreatedEvent(String bookingId, LocalDate fromDate, LocalDate toDate,
                                UUID customerId, Set<Integer> rooms, LocalDateTime timestamp) {
         super(timestamp);

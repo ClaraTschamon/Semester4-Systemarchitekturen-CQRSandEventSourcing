@@ -1,11 +1,11 @@
 package at.fhv.cts.eventside.service;
 
-import at.fhv.cts.eventside.events.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.springframework.stereotype.Service;
+import share.events.*;
 
 import java.io.*;
 import java.nio.file.Files;

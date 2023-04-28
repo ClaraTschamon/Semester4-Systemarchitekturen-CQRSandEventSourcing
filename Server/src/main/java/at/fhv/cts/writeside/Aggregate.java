@@ -1,13 +1,12 @@
 package at.fhv.cts.writeside;
 
-import at.fhv.cts.eventside.events.*;
 import share.commands.*;
 import share.domainModels.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import share.events.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -36,7 +35,7 @@ public class Aggregate {
         repositoryFacade.createCustomer(customer);
 
         CustomerCreatedEvent event = new CustomerCreatedEvent(customer.getId(), customer.getName(),
-                customer.getAddress(), customer.getDateOfBirth(), LocalDateTime.now());
+                customer.getAddress(), customer.getDateOfBirth());
         //
 
         //create event
@@ -87,7 +86,7 @@ public class Aggregate {
         //create event
         Set<Integer> roomNumbers = booking.getRooms().stream().map(Room::getRoomNo).collect(Collectors.toSet());
         BookingCreatedEvent event = new BookingCreatedEvent(booking.getBookingId(), booking.getFromDate(), booking.getToDate(),
-                booking.getCustomer().getId(), roomNumbers, LocalDateTime.now());
+                booking.getCustomer().getId(), roomNumbers);
         return eventPublisher.publishEvent(event);
         //
     }
@@ -111,7 +110,7 @@ public class Aggregate {
        //
 
         //create event
-        BookingCancelledEvent event = new BookingCancelledEvent(booking.getBookingId(), LocalDateTime.now());
+        BookingCancelledEvent event = new BookingCancelledEvent(booking.getBookingId());
         return eventPublisher.publishEvent(event);
         //
     }
@@ -133,21 +132,19 @@ public class Aggregate {
         //create events
         for (Customer customer : customers.values()) {
             CustomerCreatedEvent event = new CustomerCreatedEvent(customer.getId(), customer.getName(),
-                    customer.getAddress(), customer.getDateOfBirth(),
-                    LocalDateTime.now());
+                    customer.getAddress(), customer.getDateOfBirth());
             eventPublisher.publishEvent(event);
         }
 
         for (Room room : rooms.values()) {
-            RoomCreatedEvent event = new RoomCreatedEvent(room.getRoomNo(), room.getMaxPersons(), room.getCategory(),
-                    LocalDateTime.now(), null, null);
+            RoomCreatedEvent event = new RoomCreatedEvent(room.getRoomNo(), room.getMaxPersons(), room.getCategory(), null, null);
             eventPublisher.publishEvent(event);
         }
 
         for(Booking booking : bookings.values()) {
             Set<Integer> roomNumbers = booking.getRooms().stream().map(Room::getRoomNo).collect(Collectors.toSet());
             BookingCreatedEvent event = new BookingCreatedEvent(booking.getBookingId(), booking.getFromDate(), booking.getToDate(),
-                    booking.getCustomer().getId(), roomNumbers, LocalDateTime.now());
+                    booking.getCustomer().getId(), roomNumbers);
             eventPublisher.publishEvent(event);
         }
         //
@@ -155,7 +152,7 @@ public class Aggregate {
 
     public void restoreDBs() {
         //create event
-        DBsRestoredEvent event = new DBsRestoredEvent(LocalDateTime.now());
+        DBsRestoredEvent event = new DBsRestoredEvent();
         eventPublisher.publishEvent(event);
         //
     }

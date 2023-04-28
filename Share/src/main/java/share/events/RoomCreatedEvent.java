@@ -1,4 +1,4 @@
-package at.fhv.cts.eventside.events;
+package share.events;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,6 +9,20 @@ public class RoomCreatedEvent extends Event {
     private String category;
     private LocalDate reservedFrom;
     private LocalDate reservedUntil;
+
+    public RoomCreatedEvent() {
+        super(LocalDateTime.now());
+    }
+
+    public RoomCreatedEvent(int roomNo, int maxPersons, String category,
+                            LocalDate reservedFrom, LocalDate reservedUntil) {
+        super(LocalDateTime.now());
+        this.roomNo = roomNo;
+        this.maxPersons = maxPersons;
+        this.category = category;
+        this.reservedFrom = reservedFrom;
+        this.reservedUntil = reservedUntil;
+    }
 
     public RoomCreatedEvent(int roomNo, int maxPersons, String category, LocalDateTime timestamp,
                             LocalDate reservedFrom, LocalDate reservedUntil) {

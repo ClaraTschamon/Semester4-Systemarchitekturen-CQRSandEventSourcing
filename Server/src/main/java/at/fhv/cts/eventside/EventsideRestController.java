@@ -1,6 +1,6 @@
 package at.fhv.cts.eventside;
 
-import at.fhv.cts.eventside.events.Event;
+import share.events.Event;
 import at.fhv.cts.eventside.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

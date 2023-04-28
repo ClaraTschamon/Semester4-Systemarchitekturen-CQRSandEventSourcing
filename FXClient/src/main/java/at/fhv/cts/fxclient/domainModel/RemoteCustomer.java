@@ -56,6 +56,7 @@ public class RemoteCustomer {
     @Override
     public String toString() {
         return  "name='" + name + '\'' +
+                ", address='" + address + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'';
     }
 }

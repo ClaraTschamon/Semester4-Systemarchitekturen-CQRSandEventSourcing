@@ -1,6 +1,6 @@
 package at.fhv.cts.readside;
 
-import at.fhv.cts.eventside.events.Event;
+import share.events.Event;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;

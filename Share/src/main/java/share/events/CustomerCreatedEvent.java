@@ -1,4 +1,4 @@
-package at.fhv.cts.eventside.events;
+package share.events;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,6 +9,18 @@ public class CustomerCreatedEvent extends Event {
     private String name;
     private String address;
     private LocalDate dateOfBirth;
+
+    public CustomerCreatedEvent() {
+        super(LocalDateTime.now());
+    }
+
+    public CustomerCreatedEvent(UUID customerId, String name, String address, LocalDate birthdate) {
+        super(LocalDateTime.now());
+        this.customerId = customerId;
+        this.name = name;
+        this.address = address;
+        this.dateOfBirth = birthdate;
+    }
 
     public CustomerCreatedEvent(UUID customerId, String name, String address, LocalDate birthdate,
                                 LocalDateTime timestamp) {

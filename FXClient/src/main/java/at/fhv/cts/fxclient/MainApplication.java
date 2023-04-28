@@ -30,7 +30,7 @@ public class MainApplication extends Application {
         URL fxmlLocation = getClass().getResource("/main-view.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
         scene = new Scene(fxmlLoader.load(), width, height);
-        stage.setTitle("Clara's Booking System");
+        stage.setTitle("Hotel Booking System");
         stage.setScene(scene);
         stage.show();
     }

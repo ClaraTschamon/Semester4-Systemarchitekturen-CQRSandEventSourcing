@@ -2,12 +2,12 @@ package at.fhv.cts.readside;
 
 import share.domainModels.*;
 
-import at.fhv.cts.eventside.events.*;
 import at.fhv.cts.readside.queries.GetBookingsQuery;
 import at.fhv.cts.readside.queries.GetCustomersQuery;
 import at.fhv.cts.readside.queries.GetFreeRoomsQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import share.events.Event;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

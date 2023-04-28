@@ -1,4 +1,4 @@
-package at.fhv.cts.eventside.events;
+package share.events;
 
 import java.time.LocalDateTime;
 

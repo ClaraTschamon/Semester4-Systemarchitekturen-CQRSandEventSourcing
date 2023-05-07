@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b559b5bf-21ca-4f41-b241-85909a1e6ac0" name="Changes" comment="important changes with getfreerooms...">
-      <change afterPath="$PROJECT_DIR$/.idea/CQRSandEventSourcing.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/5/05efc8b1657769a27696d478ded1e95f38737233" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="b559b5bf-21ca-4f41-b241-85909a1e6ac0" name="Changes" comment="last commit">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/5/05efc8b1657769a27696d478ded1e95f38737233" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/at/fhv/cts/fxclient/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/events.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/eventside/service/events.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/Aggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/writeside/Aggregate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Share/build/classes/java/main/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/classes/java/main/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Share/build/classes/java/main/share/events/BookingCancelledEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/classes/java/main/share/events/BookingCancelledEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Share/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Share/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/IRepositoryFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/IRepositoryFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/Projection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/Projection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/RepositoryFacadeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/RepositoryFacadeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/BookedRoomsReadRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/BookedRoomsReadRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/IBookedRoomsReadRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/IBookedRoomsReadRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +249,7 @@
       <workItem from="1683278560958" duration="2771000" />
       <workItem from="1683290117469" duration="589000" />
       <workItem from="1683385911142" duration="14000" />
-      <workItem from="1683443885681" duration="107000" />
+      <workItem from="1683443885681" duration="1591000" />
     </task>
     <task id="LOCAL-00001" summary="modules now working">
       <created>1682526400324</created>
@@ -322,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682704548286</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="last commit">
+      <created>1683467269681</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683467269681</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,9 +356,19 @@
     <MESSAGE value="renames" />
     <MESSAGE value="moved events to share" />
     <MESSAGE value="important changes with getfreerooms..." />
-    <option name="LAST_COMMIT_MESSAGE" value="important changes with getfreerooms..." />
+    <MESSAGE value="last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="last commit" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/main/java/at/fhv/cts/readside/repositories/CustomerReadRepositoryImpl.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="maxPersons" />

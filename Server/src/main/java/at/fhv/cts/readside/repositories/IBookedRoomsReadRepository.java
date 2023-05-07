@@ -10,4 +10,5 @@ public interface IBookedRoomsReadRepository {
     void deleteBookedRooms(LocalDate fromDate, LocalDate toDate, Set<Integer> roomNumbers);
     void bookRooms(LocalDate fromDate, LocalDate toDate, Set<Integer> roomNumbers);
     List<Room> getFreeRooms(LocalDate fromDate, LocalDate toDate, int numberOfPersons);
+    void deleteAllBookedRooms();
 }

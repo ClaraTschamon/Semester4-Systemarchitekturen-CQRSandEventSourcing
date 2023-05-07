@@ -101,7 +101,7 @@ public class RepositoryFacadeImpl implements IRepositoryFacade {
     //
 
     //bookedRooms
-    @Override
+    @Override //used in cancelBooking
     public void deleteBookedRooms(LocalDate fromDate, LocalDate toDate, Set<Integer> roomNumbers) {
         bookedRoomsReadRepository.deleteBookedRooms(fromDate, toDate, roomNumbers);
     }
@@ -114,6 +114,11 @@ public class RepositoryFacadeImpl implements IRepositoryFacade {
     @Override
     public List<Room> getFreeRooms(LocalDate fromDate, LocalDate toDate, int numberOfPersons) {
         return bookedRoomsReadRepository.getFreeRooms(fromDate, toDate, numberOfPersons);
+    }
+
+    @Override
+    public void deleteAllBookedRooms() {
+        bookedRoomsReadRepository.deleteAllBookedRooms();
     }
     //
 }

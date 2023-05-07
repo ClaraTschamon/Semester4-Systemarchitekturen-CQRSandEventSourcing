@@ -66,4 +66,8 @@ public class BookedRoomsReadRepositoryImpl implements IBookedRoomsReadRepository
 
         return new ArrayList<>(freeRooms.values());
     }
+
+    public void deleteAllBookedRooms() {
+        bookedRooms.clear();
+    }
 }

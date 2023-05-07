@@ -399,6 +399,9 @@ public class MainController implements Initializable {
                 bookingSuccessLabel.setText("Booking could not be created");
                 bookingSuccessLabel.setStyle("-fx-text-fill: red");
             }
+
+            //refresh tableview
+            onSearchForRoomsButtonClicked(arrivalDate, departureDate, maxPersons);
         });
         customerInfoGridPane.add(bookRoomButton, 0, 10);
     }

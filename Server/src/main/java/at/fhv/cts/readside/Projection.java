@@ -57,6 +57,7 @@ public class Projection {
         repositoryFacade.deleteCustomer();
         repositoryFacade.deleteBookings();
         repositoryFacade.deleteRooms();
+        repositoryFacade.deleteAllBookedRooms();
     }
 
     public void processRoomCreatedEvent(RoomCreatedEvent event) {

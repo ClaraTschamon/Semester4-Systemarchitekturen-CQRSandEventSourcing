@@ -60,6 +60,7 @@ public class Aggregate {
                 return false;
             }
         }
+        //
 
         //check if arrival and departure dates in booking intercepts with command.getArrivalDate() and command.getDepartureDate()
         //get all bookings
